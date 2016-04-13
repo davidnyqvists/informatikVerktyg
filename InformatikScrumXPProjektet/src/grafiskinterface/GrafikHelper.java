@@ -5,7 +5,7 @@ import java.util.HashMap;
 import javax.swing.JFrame;
 /**
  *
- * @author Simon
+ * @author Simon Jonas
  */
 public class GrafikHelper {
     
