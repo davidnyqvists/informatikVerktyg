@@ -170,9 +170,16 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_LoginScreen_LogInActionPerformed
 
     private void btn_LoginScreen_KontoHanteringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LoginScreen_KontoHanteringActionPerformed
+        String GUIUsername = tf_LoginScreen_Username.getText();
+        String GUIPassword = String.valueOf(pf_LoginScreen_Password.getPassword());
         
-        GrafikHelper.DisposeFrame();
-        GrafikHelper.InitieraAccountManagement();
+        if (GUIUsername.equals("systemadmin") && GUIPassword.equals("systemadmin")){
+            GrafikHelper.DisposeFrame();
+            GrafikHelper.InitieraAccountManagement();
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "The username or password is wrong");
+        }
     }//GEN-LAST:event_btn_LoginScreen_KontoHanteringActionPerformed
 
     private void pf_LoginScreen_PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pf_LoginScreen_PasswordActionPerformed
