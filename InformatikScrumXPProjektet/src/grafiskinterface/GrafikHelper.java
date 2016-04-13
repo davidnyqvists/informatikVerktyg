@@ -1,9 +1,9 @@
-
+ 
 package grafiskinterface;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JFrame;
-/**
+/**jj
  *
  * @author Simon Jonas
  */
