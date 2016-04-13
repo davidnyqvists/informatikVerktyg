@@ -146,26 +146,22 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_LoginScreen_ExitActionPerformed
 
     private void btn_LoginScreen_LogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LoginScreen_LogInActionPerformed
-        sqlMethods = dataBase.returnDatabase();
-        
-        String GUIUsername = tf_LoginScreen_Username.getText();
-        String GUIPassword = String.valueOf(pf_LoginScreen_Password.getPassword());
-        String sqlDbPassword = "Select PASSWORD1 from PERSON where username ='" + GUIUsername + "'";
         
         
-        try {
-            String dbPassword = sqlMethods.fetchSingle(sqlDbPassword);
-            if (dbPassword != null && dbPassword.equals(GUIPassword)){
-                GrafikHelper.DisposeFrame();
-                GrafikHelper.InitieraMain();
-            }
-            else {
-                JOptionPane.showMessageDialog(null, "The username or password is wrong");
-            }
-        }
-        catch (InfException e) {
-            System.out.println(e.getMessage());
-        }
+       String username = tf_LoginScreen_Username.getText();
+       String password = String.valueOf(pf_LoginScreen_Password.getPassword());
+                boolean access = DBClass.logIn(username, password);
+        
+                if (access = true)
+                {
+                    
+                }
+                else
+                {
+                    
+                }
+                
+        
         
     }//GEN-LAST:event_btn_LoginScreen_LogInActionPerformed
 

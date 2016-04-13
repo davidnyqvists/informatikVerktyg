@@ -11,6 +11,7 @@ package databas;
  */
 
 //KLASSER VI IMPORTERAR
+import grafiskinterface.GrafikHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import oru.inf.InfDB;
@@ -160,7 +161,26 @@ public class DBClass {
        System.out.println(primeKeys);
     }
     
-    
+    public boolean logIn(String user, String pass) {
+            
+        String sqlDbPassword = "Select PASSWORD1 from PERSON where username ='" + user + "'";
+        boolean access = false;
+        
+        try {
+            String dbPassword = idb.fetchSingle(sqlDbPassword);
+            if (dbPassword != null && dbPassword.equals(pass)){
+                return access;
+            }
+            else {
+                return access;
+            }
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        
+    }
     
     
     
