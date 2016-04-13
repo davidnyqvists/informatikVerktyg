@@ -141,7 +141,7 @@ public class DBClass {
     }
     
     public String getRoomIDfromRoomname(String roomname) {
-        String sql = "Select ROOMID from ROOM where roomname ='" +roomname+ "'";
+        String sql = "Select ROOMID from ROOM where name ='" +roomname+ "'";
         try {
             String ROOMID = idb.fetchSingle(sql);
             return ROOMID;
