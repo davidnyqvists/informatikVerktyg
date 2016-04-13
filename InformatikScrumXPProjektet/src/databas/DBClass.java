@@ -139,6 +139,18 @@ public class DBClass {
             return false;
         }
     }
+    
+    public String getRoomIDfromRoomname(String roomname) {
+        String sql = "Select ROOMID from ROOM where roomname ='" +roomname+ "'";
+        try {
+            String ROOMID = idb.fetchSingle(sql);
+            return ROOMID;
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
 
     
     // Metod Lägger till nyckeltyp kopplat till tabell i HashMap primeKeys;
