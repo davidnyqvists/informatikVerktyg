@@ -144,22 +144,22 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField7" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jTextField8" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jPasswordField7" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jPasswordField8" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tf_AccountManagement_LaggTillKonto_Name" alignment="1" max="32767" attributes="0"/>
+                              <Component id="tf_AccountManagement_LaggTillKonto_Username" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tf_AccountManagement_LaggTillKonto_Password" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tf_Accountmanagement_LaggTillKonto_ChangePassword" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jCheckBox8" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="101" max="32767" attributes="0"/>
-                                  <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btn_AccountManagement_LaggTillKonto_save" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl_AccountManagement_LaggTillKonto_username" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl_AccountManagement_LaggTillKonto_Password" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl_AccountManagement_LaggTillKonto_RepeatPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl_AccountManagement_LaggTillKonto_name" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jCheckBox7" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -175,27 +175,27 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel18" min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="lbl_AccountManagement_LaggTillKonto_name" min="-2" pref="14" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField7" min="-2" max="-2" attributes="0"/>
+                          <Component id="tf_AccountManagement_LaggTillKonto_Name" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_AccountManagement_LaggTillKonto_username" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                          <Component id="jTextField8" min="-2" max="-2" attributes="0"/>
+                          <Component id="tf_AccountManagement_LaggTillKonto_Username" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_AccountManagement_LaggTillKonto_Password" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                          <Component id="jPasswordField7" min="-2" max="-2" attributes="0"/>
+                          <Component id="tf_AccountManagement_LaggTillKonto_Password" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_AccountManagement_LaggTillKonto_RepeatPassword" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                          <Component id="jPasswordField8" min="-2" max="-2" attributes="0"/>
+                          <Component id="tf_Accountmanagement_LaggTillKonto_ChangePassword" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jCheckBox7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jCheckBox8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_AccountManagement_LaggTillKonto_save" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -216,36 +216,36 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel18">
+                <Component class="javax.swing.JLabel" name="lbl_AccountManagement_LaggTillKonto_name">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Namn"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField7">
+                <Component class="javax.swing.JTextField" name="tf_AccountManagement_LaggTillKonto_Name">
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel19">
+                <Component class="javax.swing.JLabel" name="lbl_AccountManagement_LaggTillKonto_username">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Anv&#xe4;ndarnamn"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField8">
+                <Component class="javax.swing.JTextField" name="tf_AccountManagement_LaggTillKonto_Username">
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel20">
+                <Component class="javax.swing.JLabel" name="lbl_AccountManagement_LaggTillKonto_Password">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JPasswordField" name="jPasswordField7">
+                <Component class="javax.swing.JPasswordField" name="tf_AccountManagement_LaggTillKonto_Password">
                   <Properties>
                     <Property name="name" type="java.lang.String" value="" noResource="true"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel21">
+                <Component class="javax.swing.JLabel" name="lbl_AccountManagement_LaggTillKonto_RepeatPassword">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Upprepa l&#xf6;senord"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JPasswordField" name="jPasswordField8">
+                <Component class="javax.swing.JPasswordField" name="tf_Accountmanagement_LaggTillKonto_ChangePassword">
                   <Properties>
                     <Property name="name" type="java.lang.String" value="" noResource="true"/>
                   </Properties>
@@ -260,10 +260,13 @@
                     <Property name="text" type="java.lang.String" value="Utbildning"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton5">
+                <Component class="javax.swing.JButton" name="btn_AccountManagement_LaggTillKonto_save">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Spara"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_AccountManagement_LaggTillKonto_saveActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

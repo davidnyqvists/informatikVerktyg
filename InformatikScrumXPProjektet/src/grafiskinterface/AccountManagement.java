@@ -9,13 +9,24 @@ package grafiskinterface;
  *
  * @author Simon
  */
+
+import oru.inf.InfDB;
+import oru.inf.InfException;
+import java.util.*;
+import databas.DBClass;
+import javax.swing.JOptionPane;
 import java.awt.CardLayout;
+
 public class AccountManagement extends javax.swing.JFrame {
 
+    
+    private InfDB sqlMethods;
+    private DBClass dataBase;
     /**
      * Creates new form AccountManagement
      */
     public AccountManagement() {
+        dataBase = new DBClass();
         initComponents();
     }
 
@@ -37,17 +48,17 @@ public class AccountManagement extends javax.swing.JFrame {
         CardPanelHolder = new javax.swing.JPanel();
         LaggTillKonto = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        jPasswordField7 = new javax.swing.JPasswordField();
-        jLabel21 = new javax.swing.JLabel();
-        jPasswordField8 = new javax.swing.JPasswordField();
+        lbl_AccountManagement_LaggTillKonto_name = new javax.swing.JLabel();
+        tf_AccountManagement_LaggTillKonto_Name = new javax.swing.JTextField();
+        lbl_AccountManagement_LaggTillKonto_username = new javax.swing.JLabel();
+        tf_AccountManagement_LaggTillKonto_Username = new javax.swing.JTextField();
+        lbl_AccountManagement_LaggTillKonto_Password = new javax.swing.JLabel();
+        tf_AccountManagement_LaggTillKonto_Password = new javax.swing.JPasswordField();
+        lbl_AccountManagement_LaggTillKonto_RepeatPassword = new javax.swing.JLabel();
+        tf_Accountmanagement_LaggTillKonto_ChangePassword = new javax.swing.JPasswordField();
         jCheckBox7 = new javax.swing.JCheckBox();
         jCheckBox8 = new javax.swing.JCheckBox();
-        jButton5 = new javax.swing.JButton();
+        btn_AccountManagement_LaggTillKonto_save = new javax.swing.JButton();
         AndraKonto = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -125,23 +136,28 @@ public class AccountManagement extends javax.swing.JFrame {
         jLabel17.setText("Lägg till konto");
         jLabel17.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
-        jLabel18.setText("Namn");
+        lbl_AccountManagement_LaggTillKonto_name.setText("Namn");
 
-        jLabel19.setText("Användarnamn");
+        lbl_AccountManagement_LaggTillKonto_username.setText("Användarnamn");
 
-        jLabel20.setText("Lösenord");
+        lbl_AccountManagement_LaggTillKonto_Password.setText("Lösenord");
 
-        jPasswordField7.setName(""); // NOI18N
+        tf_AccountManagement_LaggTillKonto_Password.setName(""); // NOI18N
 
-        jLabel21.setText("Upprepa lösenord");
+        lbl_AccountManagement_LaggTillKonto_RepeatPassword.setText("Upprepa lösenord");
 
-        jPasswordField8.setName(""); // NOI18N
+        tf_Accountmanagement_LaggTillKonto_ChangePassword.setName(""); // NOI18N
 
         jCheckBox7.setText("Forskning");
 
         jCheckBox8.setText("Utbildning");
 
-        jButton5.setText("Spara");
+        btn_AccountManagement_LaggTillKonto_save.setText("Spara");
+        btn_AccountManagement_LaggTillKonto_save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AccountManagement_LaggTillKonto_saveActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout LaggTillKontoLayout = new javax.swing.GroupLayout(LaggTillKonto);
         LaggTillKonto.setLayout(LaggTillKontoLayout);
@@ -150,21 +166,21 @@ public class AccountManagement extends javax.swing.JFrame {
             .addGroup(LaggTillKontoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField8)
-                    .addComponent(jPasswordField7)
-                    .addComponent(jPasswordField8)
+                    .addComponent(tf_AccountManagement_LaggTillKonto_Name, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tf_AccountManagement_LaggTillKonto_Username)
+                    .addComponent(tf_AccountManagement_LaggTillKonto_Password)
+                    .addComponent(tf_Accountmanagement_LaggTillKonto_ChangePassword)
                     .addGroup(LaggTillKontoLayout.createSequentialGroup()
                         .addComponent(jCheckBox8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
-                        .addComponent(jButton5))
+                        .addComponent(btn_AccountManagement_LaggTillKonto_save))
                     .addGroup(LaggTillKontoLayout.createSequentialGroup()
                         .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel18)
+                            .addComponent(lbl_AccountManagement_LaggTillKonto_username)
+                            .addComponent(lbl_AccountManagement_LaggTillKonto_Password)
+                            .addComponent(lbl_AccountManagement_LaggTillKonto_RepeatPassword)
+                            .addComponent(lbl_AccountManagement_LaggTillKonto_name)
                             .addComponent(jCheckBox7))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -175,27 +191,27 @@ public class AccountManagement extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbl_AccountManagement_LaggTillKonto_name, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tf_AccountManagement_LaggTillKonto_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
-                .addComponent(jLabel19)
+                .addComponent(lbl_AccountManagement_LaggTillKonto_username)
                 .addGap(2, 2, 2)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tf_AccountManagement_LaggTillKonto_Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel20)
+                .addComponent(lbl_AccountManagement_LaggTillKonto_Password)
                 .addGap(3, 3, 3)
-                .addComponent(jPasswordField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tf_AccountManagement_LaggTillKonto_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel21)
+                .addComponent(lbl_AccountManagement_LaggTillKonto_RepeatPassword)
                 .addGap(1, 1, 1)
-                .addComponent(jPasswordField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tf_Accountmanagement_LaggTillKonto_ChangePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jCheckBox7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox8)
-                    .addComponent(jButton5))
+                    .addComponent(btn_AccountManagement_LaggTillKonto_save))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -477,6 +493,56 @@ public class AccountManagement extends javax.swing.JFrame {
         card.show(CardPanelHolder, "card3");
     }//GEN-LAST:event_btn_AccountManagement_MainPanel_TaBortKontoActionPerformed
 
+    private void btn_AccountManagement_LaggTillKonto_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountManagement_LaggTillKonto_saveActionPerformed
+        String GUIName = tf_AccountManagement_LaggTillKonto_Name.getText();
+        String GUIUsername = tf_AccountManagement_LaggTillKonto_Username.getText();
+        String GUIPassword = String.valueOf(tf_AccountManagement_LaggTillKonto_Password.getPassword());
+        String GUIConfirmPassword = String.valueOf(tf_Accountmanagement_LaggTillKonto_ChangePassword.getPassword());
+        
+        sqlMethods = dataBase.returnDatabase();
+        try {
+            String sqlInsert = "Insert into person values (" + sqlMethods.getAutoIncrement("Person", "PersonID") + ",'" + GUIUsername + "','" + GUIName + "','" + GUIPassword + "')";
+
+            if (GUIPassword.equals(GUIConfirmPassword)) {
+                System.out.println("Password correct");
+                   if (!doesPersonExistInDatabase(GUIUsername)) {
+                       System.out.println("person doesn't exist");
+                       sqlMethods.insert(sqlInsert);
+                   }
+                   else {
+                       JOptionPane.showMessageDialog(null, "The username already exist");
+                   }
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "The two passwords don't match each other");
+            }
+        }
+        catch (InfException e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_btn_AccountManagement_LaggTillKonto_saveActionPerformed
+
+    public boolean doesPersonExistInDatabase (String username) {
+        String sql = "select username from person";
+        ArrayList<String> A;
+        boolean found = false;
+        
+        try {
+            A = sqlMethods.fetchColumn(sql);
+            
+            for (String person : A) {
+                if (person.equals(username)) {
+                    found = true;
+                }
+            }
+        }
+        catch (InfException e) {
+            System.out.println(e);
+        }
+        return found;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -518,6 +584,7 @@ public class AccountManagement extends javax.swing.JFrame {
     private javax.swing.JPanel LaggTillKonto;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel TaBortKonto;
+    private javax.swing.JButton btn_AccountManagement_LaggTillKonto_save;
     private javax.swing.JButton btn_AccountManagement_MainPanel_AndraKonto;
     private javax.swing.JButton btn_AccountManagement_MainPanel_Avsluta;
     private javax.swing.JButton btn_AccountManagement_MainPanel_LaggTillKonto;
@@ -529,7 +596,6 @@ public class AccountManagement extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JCheckBox jCheckBox10;
     private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JCheckBox jCheckBox6;
@@ -542,10 +608,6 @@ public class AccountManagement extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -554,14 +616,18 @@ public class AccountManagement extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField10;
     private javax.swing.JPasswordField jPasswordField5;
     private javax.swing.JPasswordField jPasswordField6;
-    private javax.swing.JPasswordField jPasswordField7;
-    private javax.swing.JPasswordField jPasswordField8;
     private javax.swing.JPasswordField jPasswordField9;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_Password;
+    private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_RepeatPassword;
+    private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_name;
+    private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_username;
+    private javax.swing.JTextField tf_AccountManagement_LaggTillKonto_Name;
+    private javax.swing.JPasswordField tf_AccountManagement_LaggTillKonto_Password;
+    private javax.swing.JTextField tf_AccountManagement_LaggTillKonto_Username;
+    private javax.swing.JPasswordField tf_Accountmanagement_LaggTillKonto_ChangePassword;
     // End of variables declaration//GEN-END:variables
 }
