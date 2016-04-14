@@ -64,6 +64,7 @@ public class SkapaMote extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         Tf_Aktivitet = new javax.swing.JTextField();
         lbl_Aktivitet = new javax.swing.JLabel();
+        btn_skapaMote_stang = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -220,6 +221,13 @@ public class SkapaMote extends javax.swing.JFrame {
         lbl_Aktivitet.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lbl_Aktivitet.setText("Aktivitet");
 
+        btn_skapaMote_stang.setText("Stäng");
+        btn_skapaMote_stang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_skapaMote_stangActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -237,7 +245,10 @@ public class SkapaMote extends javax.swing.JFrame {
                                 .addComponent(lbl_Aktivitet, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Tf_Aktivitet, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_skapaMote_stang)))
                 .addContainerGap(132, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -251,7 +262,9 @@ public class SkapaMote extends javax.swing.JFrame {
                     .addComponent(lbl_Aktivitet, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(btn_skapaMote_stang)
+                .addContainerGap())
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {Tf_Aktivitet, lbl_Aktivitet});
@@ -406,6 +419,10 @@ public class SkapaMote extends javax.swing.JFrame {
     private void dp_SkapaMote_datePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dp_SkapaMote_datePickerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dp_SkapaMote_datePickerActionPerformed
+
+    private void btn_skapaMote_stangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_skapaMote_stangActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btn_skapaMote_stangActionPerformed
    
     
          private void listRoomToCB()
@@ -479,6 +496,7 @@ public class SkapaMote extends javax.swing.JFrame {
     private javax.swing.JButton btn_SkapaMote_ClearDeltagare;
     private javax.swing.JButton btn_SkapaMote_LaggTillDeltagare;
     private javax.swing.JButton btn_SkapaMote_skapa;
+    private javax.swing.JButton btn_skapaMote_stang;
     private javax.swing.JComboBox<String> cb_SkapaMote_Timmar;
     private javax.swing.JComboBox<String> cb_SkapaMote_deltagare;
     private javax.swing.JComboBox<String> cb_SkapaMote_sal;
