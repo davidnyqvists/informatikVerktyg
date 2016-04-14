@@ -31,7 +31,8 @@ private DBClass database = new DBClass();
      */
     public SeMoten() {
         initComponents();
-   laggTillNamn();
+        laggTillNamn();
+        fillTable_PersonPlattform();
     valueCheck = 0;
         try {
             String path = Paths.get("").toAbsolutePath().toString() + File.separator + "BOOKFACE.FDB";
@@ -53,29 +54,41 @@ private DBClass database = new DBClass();
         
        }
     public void fillTable_PersonPlattform() {
-        emptyTable_PersonPlattform();
+       emptyTable_PersonPlattform();
         String selectedDeltagare = jComboBox1.getSelectedItem().toString();
+        
+        if(selectedDeltagare == "Alla")
+        {
+            String sqlfraga2 = "select ROOM.NAME, MEETING.TITLE\n"
+                + "from MEETING JOIN ROOM\n"
+                + "on ROOM.ROOMID = MEETING.ROOMID\n"
+                + "join PERSON on \n"
+                + "PERSON.PERSONID = MEETING.PERSONID\n";
+            System.out.println(sqlfraga2);
+        }
+        else{
         String sqlfraga = "select ROOM.NAME, MEETING.TITLE\n"
-                + "from MEETING JOIN\n"
+                + "from MEETING JOIN ROOM\n"
                 + "on ROOM.ROOMID = MEETING.ROOMID\n"
                 + "join PERSON on \n"
                 + "PERSON.PERSONID = MEETING.PERSONID\n"
                 + "WHERE PERSON.NAME = '" + selectedDeltagare + "' ";
-
         System.out.println(sqlfraga);
-        fillTable_GetGet(tblDomanPersonPlattform, sqlfraga, "NAMN", "BENAMNING");
-        domanTableModel = (DefaultTableModel) tblDomanPersonPlattform.getModel();
+        }
+        
+        //fillTable_GetGet(jtbl_seMoten_motesSchema, sqlfraga, "NAMN", "BENAMNING");
+        domanTableModel = (DefaultTableModel) jtbl_seMoten_motesSchema.getModel();
     }
     
      public void emptyTable_PersonPlattform() {
-        DefaultTableModel dtm = (DefaultTableModel) tblDomanPersonPlattform.getModel();
+        DefaultTableModel dtm = (DefaultTableModel) jtbl_seMoten_motesSchema.getModel();
 
         int rowCount = dtm.getRowCount();
 
         for (int i = rowCount - 1; i >= 0; i--) {
             dtm.removeRow(i);
         }
-        tblDomanPersonPlattform.setModel(dtm);
+        jtbl_seMoten_motesSchema.setModel(dtm);
     }
     
     
@@ -132,25 +145,28 @@ private DBClass database = new DBClass();
 
         jtbl_seMoten_motesSchema.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Rum", "Titel"
             }
         ));
         jtbl_seMoten_motesSchema.setCellSelectionEnabled(true);
         jtbl_seMoten_motesSchema.setRequestFocusEnabled(false);
         jScrollPane2.setViewportView(jtbl_seMoten_motesSchema);
         jtbl_seMoten_motesSchema.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (jtbl_seMoten_motesSchema.getColumnModel().getColumnCount() > 0) {
+            jtbl_seMoten_motesSchema.getColumnModel().getColumn(1).setResizable(false);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -212,7 +228,7 @@ private DBClass database = new DBClass();
     }//GEN-LAST:event_btn_seMoten_stangActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        fillTable_PersonPlattform();
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
