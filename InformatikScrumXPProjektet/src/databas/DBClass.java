@@ -159,7 +159,7 @@ public class DBClass {
      */
     public void insertDateToDate_Time(String date) {
         try {
-            String sql = "INSERT INTO DATE_TIME VALUES (" + idb.getAutoIncrement("DATE_TIME", "DATE_TIMEID") + ",'" + date + "'";
+            String sql = "INSERT INTO DATE_TIME VALUES (" + idb.getAutoIncrement("DATE_TIME", "DATE_TIMEID") + ",'" + date + "')";
             idb.insert(sql);
         }
         catch (InfException e) {
