@@ -11,26 +11,16 @@ package informatikscrumxpprojektet;
  */
 public class CurrentLogin {
     
-    private boolean admin;
+    private boolean educationAdmin;
+    private boolean researchAdmin;
+    private boolean systemAmdmin;
     private boolean utbildning;
     private boolean forskning;
     private String namn;
     private String username;
     private int id;
 
-    /**
-     * @return the admin
-     */
-    public boolean isAdmin() {
-        return admin;
-    }
-
-    /**
-     * @param admin the admin to set
-     */
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
-    }
+    
 
     /**
      * @return the utbildning
@@ -100,6 +90,48 @@ public class CurrentLogin {
      */
     public void setId(int id) {
         this.id = id;
+    }
+
+    /**
+     * @return the educationAdmin
+     */
+    public boolean isEducationAdmin() {
+        return educationAdmin;
+    }
+
+    /**
+     * @param educationAdmin the educationAdmin to set
+     */
+    public void setEducationAdmin(boolean educationAdmin) {
+        this.educationAdmin = educationAdmin;
+    }
+
+    /**
+     * @return the researchAdmin
+     */
+    public boolean isResearchAdmin() {
+        return researchAdmin;
+    }
+
+    /**
+     * @param researchAdmin the researchAdmin to set
+     */
+    public void setResearchAdmin(boolean researchAdmin) {
+        this.researchAdmin = researchAdmin;
+    }
+
+    /**
+     * @return the systemAmdmin
+     */
+    public boolean isSystemAmdmin() {
+        return systemAmdmin;
+    }
+
+    /**
+     * @param systemAmdmin the systemAmdmin to set
+     */
+    public void setSystemAmdmin(boolean systemAmdmin) {
+        this.systemAmdmin = systemAmdmin;
     }
     
 }
