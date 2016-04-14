@@ -287,9 +287,9 @@ public class SkapaMote extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_SkapaMote_skapaActionPerformed
 
     /**
-     * Adds the choosen date and time to the table Date_Time in the database
+     * Gets the choosen date and time to a string (YYYY-MM-dd HH:mm:ss)
      */
-    public void addDateToDateTime() {
+    public String addDateToDateTime() {
         
         //Get the choosen date.
         Date choosendate = dp_SkapaMote_datePicker.getDate();
@@ -317,7 +317,7 @@ public class SkapaMote extends javax.swing.JFrame {
         if (day >= 10 && month < 10) {
             finalDate = year + "-0" + month + "-" + day + " " + hour + ":" + minute + ":" + seconds;
         }  
-        System.out.println(finalDate);   
+        return finalDate;   
     }
     
 
