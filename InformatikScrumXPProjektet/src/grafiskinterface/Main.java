@@ -426,7 +426,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_Main_SocialActionPerformed
 
     private void btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePostActionPerformed
-        // TODO add your handling code here:
+        GrafikHelper.InitieraCreateNewPost();
     }//GEN-LAST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePostActionPerformed
 
   

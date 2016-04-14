@@ -51,6 +51,10 @@ public class GrafikHelper {
         nuvarande.dispose();
     }
     
+    public static void InitieraCreateNewPost() {
+        new CreateNewPostFrame().setVisible(true);
+    }
+    
     
     
    
