@@ -9,14 +9,60 @@ package grafiskinterface;
  *
  * @author David Nyqvist
  */
-public class SeMoten extends javax.swing.JFrame {
+import databas.DBClass;
+import java.awt.Color;
+import java.io.File;
+import java.nio.file.Paths;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+import java.util.*;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
+public class SeMoten extends javax.swing.JFrame {
+private DBClass database = new DBClass(); 
+    private InfDB idb;
+    DefaultTableModel domanTableModel = new DefaultTableModel();
+    int valueCheck;
     /**
      * Creates new form SeMoten
      */
     public SeMoten() {
         initComponents();
-    }
+   laggTillNamn();
+    valueCheck = 0;
+        try {
+            String path = Paths.get("").toAbsolutePath().toString() + File.separator + "BOOKFACE.FDB";
+            idb = new InfDB(path);
+            System.out.println("Fungera");
+        } catch (InfException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.print("fel");
+        }
+    
+   }
+     // Lägger till namn i Comboboxen
+    public void laggTillNamn() {
+        String sql =  "Select NAME FROM PERSON";
+        ArrayList<HashMap<String, String>> projektLista = database.hamtaAlla(sql);
+        for (int i = 0; i < projektLista.size(); i++) {
+          jComboBox1.addItem(projektLista.get(i).get("NAME"));
+        }
+        
+       }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
