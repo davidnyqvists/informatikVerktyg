@@ -61,7 +61,7 @@ public class SkapaMote extends javax.swing.JFrame {
         lbl_SkapaMote_timmar = new javax.swing.JLabel();
         cb_SkapaMote_Timmar = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cb_SkapaMote_Minuter = new javax.swing.JComboBox<>();
         Tf_Aktivitet = new javax.swing.JTextField();
         lbl_Aktivitet = new javax.swing.JLabel();
         btn_skapaMote_stang = new javax.swing.JButton();
@@ -131,7 +131,7 @@ public class SkapaMote extends javax.swing.JFrame {
 
         jLabel3.setText("Minuter");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "15", "30", "45" }));
+        cb_SkapaMote_Minuter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "15", "30", "45" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -173,7 +173,7 @@ public class SkapaMote extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(cb_SkapaMote_Minuter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -186,7 +186,7 @@ public class SkapaMote extends javax.swing.JFrame {
                     .addComponent(lbl_SkapaMote_timmar)
                     .addComponent(cb_SkapaMote_Timmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cb_SkapaMote_Minuter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
@@ -286,7 +286,39 @@ public class SkapaMote extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_SkapaMote_skapaActionPerformed
 
-    
+    /**
+     * Adds the choosen date and time to the table Date_Time in the database
+     */
+    public void addDateToDateTime() {
+        
+        //Get the choosen date.
+        Date choosendate = dp_SkapaMote_datePicker.getDate();
+        Calendar cal = Calendar.getInstance();        
+        cal.setTime(choosendate);
+        
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        int month = cal.get(Calendar.MONTH); //0-11
+        month = month + 1;
+        int year = cal.get(Calendar.YEAR);
+        String hour = cb_SkapaMote_Timmar.getSelectedItem().toString();
+        String minute = cb_SkapaMote_Minuter.getSelectedItem().toString();
+        String seconds = "00";
+        
+        //Timeformat: YYYY-MM-dd HH:mm:ss
+        String finalDate = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + seconds;
+        
+        //Day and month will print out 1, 2, 3... we want 01,02,03...
+        if (day < 10 && month < 10) {
+            finalDate = year + "-0" + month + "-0" + day + " " + hour + ":" + minute + ":" + seconds;
+        }
+        if (day < 10 && month >= 10) {
+            finalDate = year + "-" + month + "-0" + day + " " + hour + ":" + minute + ":" + seconds;
+        }
+        if (day >= 10 && month < 10) {
+            finalDate = year + "-0" + month + "-" + day + " " + hour + ":" + minute + ":" + seconds;
+        }  
+        System.out.println(finalDate);   
+    }
     
 
 // Metod  Lägger in ett nytt Möte
@@ -296,19 +328,7 @@ public class SkapaMote extends javax.swing.JFrame {
         String room = cb_SkapaMote_sal.getSelectedItem().toString();
         //Get the roomid
         String roomID = database.getRoomIDfromRoomname(room);
-        //Timeformate: YYYY-MM-dd HH:mm:ss
         
-        //Get the choosen date
-        Date choosendate = dp_SkapaMote_datePicker.getDate();
-        Calendar cal = Calendar.getInstance();        
-        cal.setTime(choosendate);
-        
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-        int month = cal.get(Calendar.MONTH); //0-11
-        month = month + 1;
-        int year = cal.get(Calendar.YEAR);
-        
-        System.out.println(title + " " + room + " " + roomID + " " + year + " " + month + " " + day);
         
         
         
@@ -497,11 +517,11 @@ public class SkapaMote extends javax.swing.JFrame {
     private javax.swing.JButton btn_SkapaMote_LaggTillDeltagare;
     private javax.swing.JButton btn_SkapaMote_skapa;
     private javax.swing.JButton btn_skapaMote_stang;
+    private javax.swing.JComboBox<String> cb_SkapaMote_Minuter;
     private javax.swing.JComboBox<String> cb_SkapaMote_Timmar;
     private javax.swing.JComboBox<String> cb_SkapaMote_deltagare;
     private javax.swing.JComboBox<String> cb_SkapaMote_sal;
     private org.jdesktop.swingx.JXDatePicker dp_SkapaMote_datePicker;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
