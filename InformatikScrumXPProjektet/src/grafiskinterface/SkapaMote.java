@@ -32,8 +32,6 @@ public class SkapaMote extends javax.swing.JFrame {
         laggTillNamn();
         addRooms();
         
-        //Sätter rätt datumformat till datepickern
-        dp_SkapaMote_datePicker.setFormats("YYYY.MM.dd");
     }
 
     /**
@@ -127,7 +125,7 @@ public class SkapaMote extends javax.swing.JFrame {
 
         lbl_SkapaMote_timmar.setText("Timmar");
 
-        cb_SkapaMote_Timmar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        cb_SkapaMote_Timmar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
 
         jLabel3.setText("Minuter");
 
@@ -281,15 +279,16 @@ public class SkapaMote extends javax.swing.JFrame {
     }//GEN-LAST:event_cb_SkapaMote_deltagareActionPerformed
 
     private void btn_SkapaMote_skapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SkapaMote_skapaActionPerformed
-       
-        laggTillMote();  
+        String date = getChoosenDate();
+        System.out.println(date);
+        database.insertDateToDate_Time(date);  
         
     }//GEN-LAST:event_btn_SkapaMote_skapaActionPerformed
 
     /**
      * Gets the choosen date and time to a string (YYYY-MM-dd HH:mm:ss)
      */
-    public String addDateToDateTime() {
+    public String getChoosenDate() {
         
         //Get the choosen date.
         Date choosendate = dp_SkapaMote_datePicker.getDate();
