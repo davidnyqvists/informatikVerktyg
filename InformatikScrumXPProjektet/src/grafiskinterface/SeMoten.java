@@ -52,7 +52,31 @@ private DBClass database = new DBClass();
         }
         
        }
+    public void fillTable_PersonPlattform() {
+        emptyTable_PersonPlattform();
+        String selectedDeltagare = jComboBox1.getSelectedItem().toString();
+        String sqlfraga = "select ROOM.NAME, MEETING.TITLE\n"
+                + "from MEETING JOIN\n"
+                + "on ROOM.ROOMID = MEETING.ROOMID\n"
+                + "join PERSON on \n"
+                + "PERSON.PERSONID = MEETING.PERSONID\n"
+                + "WHERE PERSON.NAME = '" + selectedDeltagare + "' ";
+
+        System.out.println(sqlfraga);
+        fillTable_GetGet(tblDomanPersonPlattform, sqlfraga, "NAMN", "BENAMNING");
+        domanTableModel = (DefaultTableModel) tblDomanPersonPlattform.getModel();
+    }
     
+     public void emptyTable_PersonPlattform() {
+        DefaultTableModel dtm = (DefaultTableModel) tblDomanPersonPlattform.getModel();
+
+        int rowCount = dtm.getRowCount();
+
+        for (int i = rowCount - 1; i >= 0; i--) {
+            dtm.removeRow(i);
+        }
+        tblDomanPersonPlattform.setModel(dtm);
+    }
     
     
     
@@ -91,6 +115,11 @@ private DBClass database = new DBClass();
         jLabel2.setText("Person");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alla", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Sök");
 
@@ -181,6 +210,10 @@ private DBClass database = new DBClass();
     private void btn_seMoten_stangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_seMoten_stangActionPerformed
         this.dispose();
     }//GEN-LAST:event_btn_seMoten_stangActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
