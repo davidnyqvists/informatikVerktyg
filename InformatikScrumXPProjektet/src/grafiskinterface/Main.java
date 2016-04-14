@@ -7,6 +7,7 @@ package grafiskinterface;
 
 import java.util.*;
 import java.awt.*;
+import java.awt.CardLayout;
 /**
  *
  * @author Simon
@@ -18,9 +19,8 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
-        pnl_MainMiddleWindow_Utbildning.setVisible(false);
-        pnl_MainMiddleWindow_Forskning.setVisible(false);
-        pnl_MainMiddleWindow_Social.setVisible(true);
+        CardLayout card = (CardLayout)pnl_Main_MainMiddleWindow.getLayout();
+        card.show(pnl_Main_MainMiddleWindow, "card4");
         
     }
 
@@ -35,14 +35,11 @@ public class Main extends javax.swing.JFrame {
 
         pnl_Main_MainBackgroundPanel = new javax.swing.JPanel();
         pnl_Main_TopBorderMenu = new javax.swing.JPanel();
-        pnl_Main_Education = new javax.swing.JPanel();
-        lbl_Main_Education = new javax.swing.JLabel();
-        pnl_Main_Research = new javax.swing.JPanel();
-        lbl_Main_Research = new javax.swing.JLabel();
-        pnl_Main_Social = new javax.swing.JPanel();
-        lbl_Main_Social = new javax.swing.JLabel();
         btn_Main_SkapaMote = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btn_Main_Education = new javax.swing.JButton();
+        btn_Main_Research = new javax.swing.JButton();
+        btn_Main_Social = new javax.swing.JButton();
         pnl_Main_SidePanelMenu = new javax.swing.JPanel();
         pnl_Main_MainMiddleWindow = new javax.swing.JPanel();
         pnl_MainMiddleWindow_Utbildning = new javax.swing.JPanel();
@@ -61,106 +58,7 @@ public class Main extends javax.swing.JFrame {
 
         pnl_Main_TopBorderMenu.setBackground(new java.awt.Color(255, 255, 255));
 
-        pnl_Main_Education.setBackground(new java.awt.Color(244, 246, 253));
-        pnl_Main_Education.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        pnl_Main_Education.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnl_Main_EducationMouseClicked(evt);
-            }
-        });
-
-        lbl_Main_Education.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lbl_Main_Education.setText("Utbildning");
-        lbl_Main_Education.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl_Main_EducationMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnl_Main_EducationLayout = new javax.swing.GroupLayout(pnl_Main_Education);
-        pnl_Main_Education.setLayout(pnl_Main_EducationLayout);
-        pnl_Main_EducationLayout.setHorizontalGroup(
-            pnl_Main_EducationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_Main_EducationLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_Main_Education)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnl_Main_EducationLayout.setVerticalGroup(
-            pnl_Main_EducationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_Main_EducationLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_Main_Education)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        pnl_Main_Research.setBackground(new java.awt.Color(244, 246, 253));
-        pnl_Main_Research.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        pnl_Main_Research.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnl_Main_ResearchMouseClicked(evt);
-            }
-        });
-
-        lbl_Main_Research.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lbl_Main_Research.setText("Forskning");
-        lbl_Main_Research.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl_Main_ResearchMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnl_Main_ResearchLayout = new javax.swing.GroupLayout(pnl_Main_Research);
-        pnl_Main_Research.setLayout(pnl_Main_ResearchLayout);
-        pnl_Main_ResearchLayout.setHorizontalGroup(
-            pnl_Main_ResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_Main_ResearchLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_Main_Research)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnl_Main_ResearchLayout.setVerticalGroup(
-            pnl_Main_ResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_Main_ResearchLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_Main_Research)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        pnl_Main_Social.setBackground(new java.awt.Color(244, 246, 253));
-        pnl_Main_Social.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        pnl_Main_Social.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pnl_Main_SocialMouseClicked(evt);
-            }
-        });
-
-        lbl_Main_Social.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lbl_Main_Social.setText("Social");
-        lbl_Main_Social.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl_Main_SocialMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pnl_Main_SocialLayout = new javax.swing.GroupLayout(pnl_Main_Social);
-        pnl_Main_Social.setLayout(pnl_Main_SocialLayout);
-        pnl_Main_SocialLayout.setHorizontalGroup(
-            pnl_Main_SocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_Main_SocialLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(lbl_Main_Social)
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-        pnl_Main_SocialLayout.setVerticalGroup(
-            pnl_Main_SocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_Main_SocialLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_Main_Social)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        btn_Main_SkapaMote.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btn_Main_SkapaMote.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btn_Main_SkapaMote.setText("Skapa möte ");
         btn_Main_SkapaMote.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,11 +66,35 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jButton1.setText("Se möten");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        btn_Main_Education.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btn_Main_Education.setText("Utbildning");
+        btn_Main_Education.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Main_EducationActionPerformed(evt);
+            }
+        });
+
+        btn_Main_Research.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btn_Main_Research.setText("Forskning");
+        btn_Main_Research.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Main_ResearchActionPerformed(evt);
+            }
+        });
+
+        btn_Main_Social.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btn_Main_Social.setText("Social");
+        btn_Main_Social.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Main_SocialActionPerformed(evt);
             }
         });
 
@@ -181,36 +103,35 @@ public class Main extends javax.swing.JFrame {
         pnl_Main_TopBorderMenuLayout.setHorizontalGroup(
             pnl_Main_TopBorderMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_Main_TopBorderMenuLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(pnl_Main_Education, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(pnl_Main_Research, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(pnl_Main_Social, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
+                .addComponent(btn_Main_Education, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(btn_Main_Research, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(btn_Main_Social, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addComponent(btn_Main_SkapaMote)
-                .addGap(36, 36, 36)
+                .addGap(26, 26, 26)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        pnl_Main_TopBorderMenuLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, pnl_Main_Social});
-
         pnl_Main_TopBorderMenuLayout.setVerticalGroup(
             pnl_Main_TopBorderMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_Main_TopBorderMenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(pnl_Main_TopBorderMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnl_Main_Social, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnl_Main_Research, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnl_Main_Education, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_Main_TopBorderMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btn_Main_SkapaMote, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1)))
+                    .addComponent(btn_Main_Education, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_Main_Social, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnl_Main_TopBorderMenuLayout.createSequentialGroup()
+                        .addGroup(pnl_Main_TopBorderMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_Main_SkapaMote, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btn_Main_Research, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        pnl_Main_TopBorderMenuLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btn_Main_SkapaMote, jButton1, pnl_Main_Social});
+        pnl_Main_TopBorderMenuLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btn_Main_SkapaMote, jButton1});
 
         pnl_Main_SidePanelMenu.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -226,6 +147,7 @@ public class Main extends javax.swing.JFrame {
         );
 
         pnl_Main_MainMiddleWindow.setBackground(new java.awt.Color(102, 102, 102));
+        pnl_Main_MainMiddleWindow.setLayout(new java.awt.CardLayout());
 
         pnl_MainMiddleWindow_Utbildning.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -249,6 +171,8 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(366, Short.MAX_VALUE))
         );
 
+        pnl_Main_MainMiddleWindow.add(pnl_MainMiddleWindow_Utbildning, "card2");
+
         pnl_MainMiddleWindow_Forskning.setBackground(new java.awt.Color(0, 102, 204));
 
         jLabel2.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
@@ -270,6 +194,8 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addContainerGap(366, Short.MAX_VALUE))
         );
+
+        pnl_Main_MainMiddleWindow.add(pnl_MainMiddleWindow_Forskning, "card3");
 
         pnl_MainMiddleWindow_Social.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -293,23 +219,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(366, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout pnl_Main_MainMiddleWindowLayout = new javax.swing.GroupLayout(pnl_Main_MainMiddleWindow);
-        pnl_Main_MainMiddleWindow.setLayout(pnl_Main_MainMiddleWindowLayout);
-        pnl_Main_MainMiddleWindowLayout.setHorizontalGroup(
-            pnl_Main_MainMiddleWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_MainMiddleWindow_Utbildning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(pnl_MainMiddleWindow_Forskning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(pnl_MainMiddleWindow_Social, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        pnl_Main_MainMiddleWindowLayout.setVerticalGroup(
-            pnl_Main_MainMiddleWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_Main_MainMiddleWindowLayout.createSequentialGroup()
-                .addComponent(pnl_MainMiddleWindow_Utbildning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnl_MainMiddleWindow_Forskning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnl_MainMiddleWindow_Social, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        pnl_Main_MainMiddleWindow.add(pnl_MainMiddleWindow_Social, "card4");
 
         btn_Main_Avsluta.setText("Avsluta");
         btn_Main_Avsluta.addActionListener(new java.awt.event.ActionListener() {
@@ -365,20 +275,6 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //Runs a method that shows the Education window inside the main window.
-    private void lbl_Main_EducationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_Main_EducationMouseClicked
-        pnl_MainMiddleWindow_Utbildning.setVisible(true);
-        pnl_MainMiddleWindow_Forskning.setVisible(false);
-        pnl_MainMiddleWindow_Social.setVisible(false);
-    }//GEN-LAST:event_lbl_Main_EducationMouseClicked
-
-    //Runs a method that shows the Education window inside the main window.
-    private void pnl_Main_EducationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_Main_EducationMouseClicked
-        pnl_MainMiddleWindow_Utbildning.setVisible(true);
-        pnl_MainMiddleWindow_Forskning.setVisible(false);
-        pnl_MainMiddleWindow_Social.setVisible(false);
-    }//GEN-LAST:event_pnl_Main_EducationMouseClicked
-
     
     
     
@@ -396,31 +292,20 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    //Runs a method that shows the Research window inside the main window.
-    private void pnl_Main_ResearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_Main_ResearchMouseClicked
-        pnl_MainMiddleWindow_Utbildning.setVisible(false);
-        pnl_MainMiddleWindow_Forskning.setVisible(true);
-        pnl_MainMiddleWindow_Social.setVisible(false);
-    }//GEN-LAST:event_pnl_Main_ResearchMouseClicked
-//Runs a method that shows the Research window inside the main window.
-    private void lbl_Main_ResearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_Main_ResearchMouseClicked
-        pnl_MainMiddleWindow_Utbildning.setVisible(false);
-        pnl_MainMiddleWindow_Forskning.setVisible(true);
-        pnl_MainMiddleWindow_Social.setVisible(false);
-    }//GEN-LAST:event_lbl_Main_ResearchMouseClicked
+    private void btn_Main_EducationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_EducationActionPerformed
+        CardLayout card = (CardLayout)pnl_Main_MainMiddleWindow.getLayout();
+        card.show(pnl_Main_MainMiddleWindow, "card2"); 
+    }//GEN-LAST:event_btn_Main_EducationActionPerformed
 
-    //Runs a method that shows the Social window inside the main window.
-    private void pnl_Main_SocialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_Main_SocialMouseClicked
-        pnl_MainMiddleWindow_Utbildning.setVisible(false);
-        pnl_MainMiddleWindow_Forskning.setVisible(false);
-        pnl_MainMiddleWindow_Social.setVisible(true);
-    }//GEN-LAST:event_pnl_Main_SocialMouseClicked
-//Runs a method that shows the Social window inside the main window.
-    private void lbl_Main_SocialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_Main_SocialMouseClicked
-        pnl_MainMiddleWindow_Utbildning.setVisible(false);
-        pnl_MainMiddleWindow_Forskning.setVisible(false);
-        pnl_MainMiddleWindow_Social.setVisible(true);    
-    }//GEN-LAST:event_lbl_Main_SocialMouseClicked
+    private void btn_Main_ResearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_ResearchActionPerformed
+        CardLayout card = (CardLayout)pnl_Main_MainMiddleWindow.getLayout();
+        card.show(pnl_Main_MainMiddleWindow, "card3"); 
+    }//GEN-LAST:event_btn_Main_ResearchActionPerformed
+
+    private void btn_Main_SocialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_SocialActionPerformed
+        CardLayout card = (CardLayout)pnl_Main_MainMiddleWindow.getLayout();
+        card.show(pnl_Main_MainMiddleWindow, "card4"); 
+    }//GEN-LAST:event_btn_Main_SocialActionPerformed
 
   
     
@@ -465,23 +350,20 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Main_Avsluta;
+    private javax.swing.JButton btn_Main_Education;
+    private javax.swing.JButton btn_Main_Research;
     private javax.swing.JButton btn_Main_SkapaMote;
+    private javax.swing.JButton btn_Main_Social;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel lbl_Main_Education;
-    private javax.swing.JLabel lbl_Main_Research;
-    private javax.swing.JLabel lbl_Main_Social;
     private javax.swing.JPanel pnl_MainMiddleWindow_Forskning;
     private javax.swing.JPanel pnl_MainMiddleWindow_Social;
     private javax.swing.JPanel pnl_MainMiddleWindow_Utbildning;
-    private javax.swing.JPanel pnl_Main_Education;
     private javax.swing.JPanel pnl_Main_MainBackgroundPanel;
     private javax.swing.JPanel pnl_Main_MainMiddleWindow;
-    private javax.swing.JPanel pnl_Main_Research;
     private javax.swing.JPanel pnl_Main_SidePanelMenu;
-    private javax.swing.JPanel pnl_Main_Social;
     private javax.swing.JPanel pnl_Main_TopBorderMenu;
     // End of variables declaration//GEN-END:variables
 }
