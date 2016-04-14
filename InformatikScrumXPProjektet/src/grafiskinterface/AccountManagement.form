@@ -47,12 +47,15 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="CardPanelHolder" max="32767" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btn_AccountManagement_MainPanel_Avsluta" alignment="1" min="-2" pref="75" max="-2" attributes="0"/>
-                      <Component id="btn_AccountManagement_MainPanel_Loggaut" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_AccountManagement_MainPanel_AndraKonto" alignment="1" max="32767" attributes="0"/>
-                      <Component id="btn_AccountManagement_MainPanel_LaggTillKonto" alignment="1" pref="107" max="32767" attributes="0"/>
-                      <Component id="btn_AccountManagement_MainPanel_TaBortKonto" alignment="1" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btn_AccountManagement_MainPanel_Avsluta" alignment="1" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="btn_AccountManagement_MainPanel_Loggaut" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_AccountManagement_MainPanel_AndraKonto" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btn_AccountManagement_MainPanel_LaggTillKonto" alignment="1" pref="107" max="32767" attributes="0"/>
+                          <Component id="btn_AccountManagement_MainPanel_TaBortKonto" alignment="1" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="btn_AccountManagement_MainPanel_Dictionary" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -70,6 +73,8 @@
                           <Component id="btn_AccountManagement_MainPanel_AndraKonto" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btn_AccountManagement_MainPanel_TaBortKonto" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btn_AccountManagement_MainPanel_Dictionary" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="btn_AccountManagement_MainPanel_Loggaut" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -148,21 +153,31 @@
                               <Component id="tf_AccountManagement_LaggTillKonto_Username" alignment="0" max="32767" attributes="0"/>
                               <Component id="tf_AccountManagement_LaggTillKonto_Password" alignment="0" max="32767" attributes="0"/>
                               <Component id="tf_Accountmanagement_LaggTillKonto_ChangePassword" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jCheckBox8" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="101" max="32767" attributes="0"/>
-                                  <Component id="btn_AccountManagement_LaggTillKonto_save" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lbl_AccountManagement_LaggTillKonto_username" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lbl_AccountManagement_LaggTillKonto_Password" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lbl_AccountManagement_LaggTillKonto_RepeatPassword" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lbl_AccountManagement_LaggTillKonto_name" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="chk_AccountManagement_LaggTillKonto_Research" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="chk_AccountManagement_LaggTillKonto_ResearchAdmin" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="chk_AccountManagement_LaggTillKonto_SystemAdmin" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="chk_AccountManagement_LaggTillKonto_Education" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="chk_AccountManagement_LaggTillKonto_EducationAdmin" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="btn_AccountManagement_LaggTillKonto_save" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="18" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -191,13 +206,18 @@
                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                           <Component id="tf_Accountmanagement_LaggTillKonto_ChangePassword" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jCheckBox7" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="chk_AccountManagement_LaggTillKonto_Research" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="chk_AccountManagement_LaggTillKonto_ResearchAdmin" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="chk_AccountManagement_LaggTillKonto_SystemAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jCheckBox8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="chk_AccountManagement_LaggTillKonto_Education" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="chk_AccountManagement_LaggTillKonto_EducationAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btn_AccountManagement_LaggTillKonto_save" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="38" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -250,12 +270,12 @@
                     <Property name="name" type="java.lang.String" value="" noResource="true"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="jCheckBox7">
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_Research">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Forskning"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="jCheckBox8">
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_Education">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Utbildning"/>
                   </Properties>
@@ -267,6 +287,21 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_AccountManagement_LaggTillKonto_saveActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_ResearchAdmin">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="F.Admin"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_EducationAdmin">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="U.Admin"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_SystemAdmin">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="S.Admin"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -288,27 +323,41 @@
                               <Component id="jPasswordField5" alignment="0" max="32767" attributes="0"/>
                               <Component id="jPasswordField6" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jCheckBox6" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="101" max="32767" attributes="0"/>
-                                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox5" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="cb_AccountManagement_MainPanel_AndraKonto_AccountChooser" max="32767" attributes="0"/>
+                                      <Component id="cb_AccountManagement_MainPanel_AndraKonto_AccountChooser" pref="114" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="chk_AccountManagement_AndraKonto_Research" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="chk_AccountManagement_AndraKonto_ResearchAdmin" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="chk_AccountManagement_AndraKonto_SystemAdmin" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="chk_AccountManagement_AndraKonto_Education" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="chk_AccountManagement_AndraKonto_EducationAdmin" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -342,14 +391,19 @@
                           <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                           <Component id="jPasswordField6" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jCheckBox5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="chk_AccountManagement_AndraKonto_ResearchAdmin" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="chk_AccountManagement_AndraKonto_SystemAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="chk_AccountManagement_AndraKonto_Research" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jCheckBox6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="chk_AccountManagement_AndraKonto_EducationAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="chk_AccountManagement_AndraKonto_Education" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="18" max="32767" attributes="0"/>
+                          <EmptySpace pref="23" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -402,12 +456,12 @@
                     <Property name="name" type="java.lang.String" value="" noResource="true"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="jCheckBox5">
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_AndraKonto_Research">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Forskning"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="jCheckBox6">
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_AndraKonto_Education">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Utbildning"/>
                   </Properties>
@@ -420,96 +474,7 @@
                 <Component class="javax.swing.JComboBox" name="cb_AccountManagement_MainPanel_AndraKonto_AccountChooser">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="88">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4Item 1"/>
-                        <StringItem index="4" value="Item 2"/>
-                        <StringItem index="5" value="Item 3"/>
-                        <StringItem index="6" value="Item 4Item 1"/>
-                        <StringItem index="7" value="Item 2"/>
-                        <StringItem index="8" value="Item 3"/>
-                        <StringItem index="9" value="Item 4Item 1"/>
-                        <StringItem index="10" value="Item 2"/>
-                        <StringItem index="11" value="Item 3"/>
-                        <StringItem index="12" value="Item 4Item 1"/>
-                        <StringItem index="13" value="Item 2"/>
-                        <StringItem index="14" value="Item 3"/>
-                        <StringItem index="15" value="Item 4Item 1"/>
-                        <StringItem index="16" value="Item 2"/>
-                        <StringItem index="17" value="Item 3"/>
-                        <StringItem index="18" value="Item 4Item 1"/>
-                        <StringItem index="19" value="Item 2"/>
-                        <StringItem index="20" value="Item 3"/>
-                        <StringItem index="21" value="Item 4Item 1"/>
-                        <StringItem index="22" value="Item 2"/>
-                        <StringItem index="23" value="Item 3"/>
-                        <StringItem index="24" value="Item 4Item 1"/>
-                        <StringItem index="25" value="Item 2"/>
-                        <StringItem index="26" value="Item 3"/>
-                        <StringItem index="27" value="Item 4Item 1"/>
-                        <StringItem index="28" value="Item 2"/>
-                        <StringItem index="29" value="Item 3"/>
-                        <StringItem index="30" value="Item 4Item 1"/>
-                        <StringItem index="31" value="Item 2"/>
-                        <StringItem index="32" value="Item 3"/>
-                        <StringItem index="33" value="Item 4Item 1"/>
-                        <StringItem index="34" value="Item 2"/>
-                        <StringItem index="35" value="Item 3"/>
-                        <StringItem index="36" value="Item 4Item 1"/>
-                        <StringItem index="37" value="Item 2"/>
-                        <StringItem index="38" value="Item 3"/>
-                        <StringItem index="39" value="Item 4Item 1"/>
-                        <StringItem index="40" value="Item 2"/>
-                        <StringItem index="41" value="Item 3"/>
-                        <StringItem index="42" value="Item 4Item 1"/>
-                        <StringItem index="43" value="Item 2"/>
-                        <StringItem index="44" value="Item 3"/>
-                        <StringItem index="45" value="Item 4Item 1"/>
-                        <StringItem index="46" value="Item 2"/>
-                        <StringItem index="47" value="Item 3"/>
-                        <StringItem index="48" value="Item 4Item 1"/>
-                        <StringItem index="49" value="Item 2"/>
-                        <StringItem index="50" value="Item 3"/>
-                        <StringItem index="51" value="Item 4Item 1"/>
-                        <StringItem index="52" value="Item 2"/>
-                        <StringItem index="53" value="Item 3"/>
-                        <StringItem index="54" value="Item 4Item 1"/>
-                        <StringItem index="55" value="Item 2"/>
-                        <StringItem index="56" value="Item 3"/>
-                        <StringItem index="57" value="Item 4Item 1"/>
-                        <StringItem index="58" value="Item 2"/>
-                        <StringItem index="59" value="Item 3"/>
-                        <StringItem index="60" value="Item 4Item 1"/>
-                        <StringItem index="61" value="Item 2"/>
-                        <StringItem index="62" value="Item 3"/>
-                        <StringItem index="63" value="Item 4Item 1"/>
-                        <StringItem index="64" value="Item 2"/>
-                        <StringItem index="65" value="Item 3"/>
-                        <StringItem index="66" value="Item 4Item 1"/>
-                        <StringItem index="67" value="Item 2"/>
-                        <StringItem index="68" value="Item 3"/>
-                        <StringItem index="69" value="Item 4Item 1"/>
-                        <StringItem index="70" value="Item 2"/>
-                        <StringItem index="71" value="Item 3"/>
-                        <StringItem index="72" value="Item 4Item 1"/>
-                        <StringItem index="73" value="Item 2"/>
-                        <StringItem index="74" value="Item 3"/>
-                        <StringItem index="75" value="Item 4Item 1"/>
-                        <StringItem index="76" value="Item 2"/>
-                        <StringItem index="77" value="Item 3"/>
-                        <StringItem index="78" value="Item 4Item 1"/>
-                        <StringItem index="79" value="Item 2"/>
-                        <StringItem index="80" value="Item 3"/>
-                        <StringItem index="81" value="Item 4Item 1"/>
-                        <StringItem index="82" value="Item 2"/>
-                        <StringItem index="83" value="Item 3"/>
-                        <StringItem index="84" value="Item 4Item 1"/>
-                        <StringItem index="85" value="Item 2"/>
-                        <StringItem index="86" value="Item 3"/>
-                        <StringItem index="87" value="Item 4"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -519,6 +484,21 @@
                 <Component class="javax.swing.JButton" name="jButton2">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="V&#xe4;lj"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_AndraKonto_EducationAdmin">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="U.Admin"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_AndraKonto_ResearchAdmin">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="F.Admin"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_AndraKonto_SystemAdmin">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="S.Admin"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -581,7 +561,7 @@
                           <Component id="cb_AccountManagement_MainPanel_AndraKonto_AccountChooser1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButton4" min="-2" pref="18" max="-2" attributes="0"/>
-                          <EmptySpace pref="191" max="32767" attributes="0"/>
+                          <EmptySpace pref="207" max="32767" attributes="0"/>
                           <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -609,7 +589,7 @@
                               <Component id="jCheckBox9" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jCheckBox10" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="19" max="32767" attributes="0"/>
+                              <EmptySpace pref="35" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -796,6 +776,14 @@
             </Container>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="btn_AccountManagement_MainPanel_Dictionary">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ordlista"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_AccountManagement_MainPanel_DictionaryActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
