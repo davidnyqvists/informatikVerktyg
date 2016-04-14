@@ -152,6 +152,20 @@ public class DBClass {
             return null;
         }
     }
+    
+    /**
+     * inserts the date into date_time.
+     * @param date A string, and should be in the form: YYYY-MM-dd HH:mm:ss
+     */
+    public void insertDateToDate_Time(String date) {
+        try {
+            String sql = "INSERT INTO DATE_TIME VALUES (" + idb.getAutoIncrement("DATE_TIME", "DATE_TIMEID") + ",'" + date + "'";
+            idb.insert(sql);
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     
     // Metod Lägger till nyckeltyp kopplat till tabell i HashMap primeKeys;
