@@ -164,15 +164,15 @@ public class DBClass {
     public boolean logIn(String user, String pass) {
             
         String sqlDbPassword = "Select PASSWORD1 from PERSON where username ='" + user + "'";
-        boolean access = false;
+        
         
         try {
             String dbPassword = idb.fetchSingle(sqlDbPassword);
             if (dbPassword != null && dbPassword.equals(pass)){
-                return access;
+                return true;
             }
             else {
-                return access;
+                return false;
             }
         }
         catch (InfException e) {

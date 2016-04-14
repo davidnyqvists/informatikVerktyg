@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 
 
 public class LoginScreen extends javax.swing.JFrame {
-    private InfDB sqlMethods;
+    
     private DBClass dataBase;
     /**
      * Creates new form LogInRuta
@@ -26,6 +26,8 @@ public class LoginScreen extends javax.swing.JFrame {
     public LoginScreen() {
         dataBase = new DBClass();
         initComponents();
+        
+        lbl_LoginScreen_ErrorMessage.setVisible(false);
     }
 
     /**
@@ -45,6 +47,7 @@ public class LoginScreen extends javax.swing.JFrame {
         btn_LoginScreen_LogIn = new javax.swing.JButton();
         pf_LoginScreen_Password = new javax.swing.JPasswordField();
         btn_LoginScreen_KontoHantering = new javax.swing.JButton();
+        lbl_LoginScreen_ErrorMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +88,9 @@ public class LoginScreen extends javax.swing.JFrame {
             }
         });
 
+        lbl_LoginScreen_ErrorMessage.setForeground(new java.awt.Color(255, 0, 0));
+        lbl_LoginScreen_ErrorMessage.setText("Inkorrekt användarnamn eller lösenord vänligen kontrollera uppgifter");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,6 +120,10 @@ public class LoginScreen extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_LoginScreen_KontoHantering)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(lbl_LoginScreen_ErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,7 +138,9 @@ public class LoginScreen extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tf_LoginScreen_Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pf_LoginScreen_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
+                .addGap(37, 37, 37)
+                .addComponent(lbl_LoginScreen_ErrorMessage)
+                .addGap(18, 18, 18)
                 .addComponent(btn_LoginScreen_KontoHantering)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -150,15 +162,16 @@ public class LoginScreen extends javax.swing.JFrame {
         
        String username = tf_LoginScreen_Username.getText();
        String password = String.valueOf(pf_LoginScreen_Password.getPassword());
-                boolean access = DBClass.logIn(username, password);
+                dataBase.logIn(username, password);
         
-                if (access = true)
+                if (dataBase.logIn(username, password))
                 {
-                    
+                    GrafikHelper.DisposeFrame();
+                    GrafikHelper.InitieraMain();
                 }
                 else
                 {
-                    
+                    lbl_LoginScreen_ErrorMessage.setVisible(true);
                 }
                 
         
@@ -222,6 +235,7 @@ public class LoginScreen extends javax.swing.JFrame {
     private javax.swing.JButton btn_LoginScreen_Exit;
     private javax.swing.JButton btn_LoginScreen_KontoHantering;
     private javax.swing.JButton btn_LoginScreen_LogIn;
+    private javax.swing.JLabel lbl_LoginScreen_ErrorMessage;
     private javax.swing.JLabel lbl_LoginScreen_Password;
     private javax.swing.JLabel lbl_LoginScreen_Title;
     private javax.swing.JLabel lbl_LoginScreen_Username;
