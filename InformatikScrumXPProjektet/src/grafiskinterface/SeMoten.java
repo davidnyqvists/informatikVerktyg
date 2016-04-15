@@ -22,7 +22,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class SeMoten extends javax.swing.JFrame {
-private DBClass database = new DBClass(); 
+    private DBClass database = new DBClass(); 
     private InfDB idb;
     DefaultTableModel domanTableModel = new DefaultTableModel();
     int valueCheck;
@@ -32,7 +32,8 @@ private DBClass database = new DBClass();
     public SeMoten() {
         initComponents();
         laggTillNamn();
-        fillTable_PersonPlattform();
+//kraschar när den inte är kommenterad        
+//fillTable_PersonPlattform();
     valueCheck = 0;
         try {
             String path = Paths.get("").toAbsolutePath().toString() + File.separator + "BOOKFACE.FDB";
@@ -54,20 +55,20 @@ private DBClass database = new DBClass();
         
        }
     public void fillTable_PersonPlattform() {
-       emptyTable_PersonPlattform();
+        emptyTable_PersonPlattform();
         String selectedDeltagare = jComboBox1.getSelectedItem().toString();
-        
+        String sqlfraga = "";
         if(selectedDeltagare == "Alla")
         {
-            String sqlfraga2 = "select ROOM.NAME, MEETING.TITLE\n"
+                sqlfraga = "select ROOM.NAME, MEETING.TITLE\n"
                 + "from MEETING JOIN ROOM\n"
                 + "on ROOM.ROOMID = MEETING.ROOMID\n"
                 + "join PERSON on \n"
                 + "PERSON.PERSONID = MEETING.PERSONID\n";
-            System.out.println(sqlfraga2);
+            System.out.println(sqlfraga);
         }
         else{
-        String sqlfraga = "select ROOM.NAME, MEETING.TITLE\n"
+                sqlfraga = "select ROOM.NAME, MEETING.TITLE\n"
                 + "from MEETING JOIN ROOM\n"
                 + "on ROOM.ROOMID = MEETING.ROOMID\n"
                 + "join PERSON on \n"
@@ -76,12 +77,38 @@ private DBClass database = new DBClass();
         System.out.println(sqlfraga);
         }
         
-        //fillTable_GetGet(jtbl_seMoten_motesSchema, sqlfraga, "NAMN", "BENAMNING");
+        fillTable_GetGet(jtbl_seMoten_motesSchema, sqlfraga, "NAMN", "BENAMNING");
         domanTableModel = (DefaultTableModel) jtbl_seMoten_motesSchema.getModel();
     }
+   
+    public void fillTable_GetGet(JTable thisTable, String sql, String column1, String column2) {
+
+        DefaultTableModel dtm = (DefaultTableModel) thisTable.getModel();
+        System.out.println("Fungerar i första stycket");
+        thisTable.setModel(dtm);
+        System.out.println("Fungerar i andra stycket");
+        ArrayList<HashMap<String, String>> data = new ArrayList<>();
+        System.out.println("Fungerar i tredje stycket");
+        
+        try {
+            data = idb.fetchRows(sql);
+            System.out.println("Datan här är + " + data);
+        } catch (InfException e) {
+            System.out.println("Fill Table Error");
+        }
+
+        if (data == null) {
+        } else {
+            for (HashMap<String, String> row : data) {
+                dtm.addRow(new Object[]{row.get(column1), row.get(column2)});
+            }
+        }
+        thisTable.setModel(dtm); 
+        
+        }
     
-     public void emptyTable_PersonPlattform() {
-        DefaultTableModel dtm = (DefaultTableModel) jtbl_seMoten_motesSchema.getModel();
+    public void emptyTable_PersonPlattform() {
+       DefaultTableModel dtm = (DefaultTableModel) jtbl_seMoten_motesSchema.getModel();
 
         int rowCount = dtm.getRowCount();
 
