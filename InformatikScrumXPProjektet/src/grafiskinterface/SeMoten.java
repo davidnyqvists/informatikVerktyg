@@ -77,7 +77,7 @@ public class SeMoten extends javax.swing.JFrame {
         System.out.println(sqlfraga);
         }
         
-        fillTable_GetGet(jtbl_seMoten_motesSchema, sqlfraga, "NAMN", "BENAMNING");
+        fillTable_GetGet(jtbl_seMoten_motesSchema, sqlfraga, "NAME", "TITLE");
         domanTableModel = (DefaultTableModel) jtbl_seMoten_motesSchema.getModel();
     }
    
