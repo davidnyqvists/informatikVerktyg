@@ -303,6 +303,7 @@ public class SkapaMote extends javax.swing.JFrame {
     private void btn_SkapaMote_skapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SkapaMote_skapaActionPerformed
 
         database.insertDateToDate_Time(getChoosenDate());  
+        laggTillMote();
         
     }//GEN-LAST:event_btn_SkapaMote_skapaActionPerformed
 
@@ -351,6 +352,7 @@ public class SkapaMote extends javax.swing.JFrame {
         //Get the roomid
         String roomID = database.getRoomIDfromRoomname(room);
         
+        database.addMeeting(title, description, roomID);
         //CurrentLogin.getId();
         
         
