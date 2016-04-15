@@ -20,11 +20,13 @@ import javax.swing.JOptionPane;
 public class LoginScreen extends javax.swing.JFrame {
     
     private DBClass dataBase;
+    private CurrentLogin currentUser;
     /**
      * Creates new form LogInRuta
      */
     public LoginScreen() {
         dataBase = new DBClass();
+        currentUser = new CurrentLogin();
         initComponents();
         
         lbl_LoginScreen_ErrorMessage.setVisible(false);
@@ -166,8 +168,12 @@ public class LoginScreen extends javax.swing.JFrame {
         
                 if (dataBase.logIn(username, password))
                 {
+                    CurrentLoginHolder.InitieraHoldern(currentUser, username, password);
                     GrafikHelper.DisposeFrame();
                     GrafikHelper.InitieraMain();
+                    
+                    
+                    
                 }
                 else
                 {
