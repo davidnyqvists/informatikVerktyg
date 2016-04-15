@@ -70,7 +70,7 @@ public class DBClass {
     }
     public ArrayList<HashMap<String, String>> listAllRooms()
     {
-        String sqlFraga = "select * from Sal";
+        String sqlFraga = "select * from ROOM";
         
         try
         {
@@ -146,7 +146,7 @@ public class DBClass {
      * @return returns the roomID or null.
      */
     public String getRoomIDfromRoomname(String roomname) {
-        String sql = "Select ROOMID from ROOM where name ='" +roomname+ "'";
+        String sql = "Select ROOMID from ROOM where RNAME ='" +roomname+ "'";
         try {
             String ROOMID = idb.fetchSingle(sql);
             return ROOMID;
