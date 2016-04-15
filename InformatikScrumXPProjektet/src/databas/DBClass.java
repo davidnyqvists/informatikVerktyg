@@ -154,28 +154,43 @@ public class DBClass {
     }
     
     /**
-     * inserts the date into date_time.
+     * inserts the date into date_time. Also returns the sql query.
      * @param date A string, and should be in the form: YYYY-MM-dd HH:mm:ss
+     * @return Returns the sql query.
      */
-    public void insertDateToDate_Time(String date) {
+    public String insertDateToDate_Time(String date) {
         try {
             String sql = "INSERT INTO DATE_TIME VALUES (" + idb.getAutoIncrement("DATE_TIME", "DATE_TIMEID") + ",'" + date + "')";
+            System.out.println(sql);
             idb.insert(sql);
+            
+            //Return the created ID.
+            return sql;
         }
         catch (InfException e) {
             System.out.println(e.getMessage());
+            return null;
         }
     }
     
-    public void addMeeting (String title, String description, String roomID /*, String personID, String meeting_timeID*/ ) {
+    /**
+     * Add a meeting. It also returns the sql query
+     * @param title
+     * @param description
+     * @param roomID
+     * @return Returns the sql query.
+     */
+    public String addMeeting (String title, String description, String roomID /*, String personID, String meeting_timeID*/ ) {
         try {
             String sql = "INSERT INTO MEETING (MEETINGID, TITLE, DESCRIPTION, ROOMID) VALUES (" + idb.getAutoIncrement("MEETING", "MEETINGID") + ",'" + title + "'"
                     + ",'" + description + "','" + roomID + "')";
+            System.out.println(sql);
             idb.insert(sql);
-            
+            return sql;
         }
         catch (InfException e) {
             System.out.println(e.getMessage());
+            return null;
         }
     }
     
