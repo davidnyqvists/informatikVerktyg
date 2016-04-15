@@ -13,12 +13,13 @@ import java.awt.CardLayout;
  * @author Simon
  */
 public class Main extends javax.swing.JFrame {
+    
 
     /**
      * Creates new form Main
      */
     public Main() {
-        initComponents();
+        initComponents();   
         CardLayout card = (CardLayout)pnl_Main_MainMiddleWindow.getLayout();
         card.show(pnl_Main_MainMiddleWindow, "card4");
         
