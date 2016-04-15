@@ -69,11 +69,11 @@ public class SeMoten extends javax.swing.JFrame {
                 + "MEETING_TIME.MEETING_TIMEID = MEETING.MEETING_TIMEID\n"
                 + "JOIN DATE_TIME ON\n"
                 + "DATE_TIME.DATE_TIMEID = MEETING_TIME.DATE_TIMEID\n";
-                    
+                      
                 System.out.println(sqlfraga);
         }
         else{
-                sqlfraga = "select ROOM.RNAME, MEETING.TITLE, MEETING.DESCRIPTION, DATE_TIME.TIMECODE, PERSON.NAME\n"
+                sqlfraga = "select ROOM.RNAME, MEETING.TITLE, MEETING.DESCRIPTION, DATE_TIME.TIMECODE, PERSON.NAME, ATTENDEES.PERSONID\n"
                 + "from MEETING JOIN ROOM\n"
                 + "on ROOM.ROOMID = MEETING.ROOMID\n"
                 + "join PERSON on \n"
@@ -82,15 +82,17 @@ public class SeMoten extends javax.swing.JFrame {
                 + "MEETING_TIME.MEETING_TIMEID = MEETING.MEETING_TIMEID\n"
                 + "JOIN DATE_TIME ON\n"
                 + "DATE_TIME.DATE_TIMEID = MEETING_TIME.DATE_TIMEID\n"
+                + "Join ATTENDEES ON \n"   
+                + "ATTENDEES.MEETINGID = MEETING.MEETINGID"
                 + "WHERE PERSON.NAME = '" + selectedDeltagare + "' ";
         System.out.println(sqlfraga);
         }
         
-        fillTable_GetGet(jtbl_seMoten_motesSchema, sqlfraga, "RNAME", "TITLE", "DESCRIPTION", "TIMECODE", "NAME");
+        fillTable_GetGet(jtbl_seMoten_motesSchema, sqlfraga, "RNAME", "TITLE", "DESCRIPTION", "TIMECODE", "NAME", "PERSONID");
         domanTableModel = (DefaultTableModel) jtbl_seMoten_motesSchema.getModel();
     }
    
-    public void fillTable_GetGet(JTable thisTable, String sql, String column1, String column2, String column3, String column4, String column5) {
+    public void fillTable_GetGet(JTable thisTable, String sql, String column1, String column2, String column3, String column4, String column5, String column6) {
 
         DefaultTableModel dtm = (DefaultTableModel) thisTable.getModel();
         System.out.println("Fungerar i första stycket");
@@ -109,7 +111,7 @@ public class SeMoten extends javax.swing.JFrame {
         if (data == null) {
         } else {
             for (HashMap<String, String> row : data) {
-                dtm.addRow(new Object[]{row.get(column1), row.get(column2), row.get(column3), row.get(column4), row.get(column5)});
+                dtm.addRow(new Object[]{row.get(column1), row.get(column2), row.get(column3), row.get(column4), row.get(column5), row.get(column6)});
             }
         }
         thisTable.setModel(dtm); 
@@ -178,19 +180,19 @@ public class SeMoten extends javax.swing.JFrame {
 
         jtbl_seMoten_motesSchema.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Rum", "Titel", "Beskrivning", "Tid", "Deltagare"
+                "Rum", "Titel", "Beskrivning", "Tid", "Mötesansvarig", "Deltagare"
             }
         ));
         jtbl_seMoten_motesSchema.setCellSelectionEnabled(true);
