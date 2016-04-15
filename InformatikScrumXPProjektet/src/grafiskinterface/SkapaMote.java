@@ -365,14 +365,12 @@ public class SkapaMote extends javax.swing.JFrame {
         String room = cb_SkapaMote_sal.getSelectedItem().toString();
         //Get the roomid
         String roomID = database.getRoomIDfromRoomname(room);
-        String personID = "1"; //This should be the person who is online right now.
-        //Get meeting_timeID
         
         //Inserts the meeting and saves the sql query to a string. We want to get the auto created ID from the query
         String theSqlQuery = database.addMeeting(title, description, roomID);
         //Get the ID from theSqlQuery
      
-        String[] firstsplit = theSqlQuery.split("(");
+        String firstsplit[] = theSqlQuery.split("(");
         System.out.println(firstsplit[0]);
         System.out.println(firstsplit[1]);
         /*array list<string> x = sql.split(“(”)
