@@ -60,7 +60,7 @@ public class SeMoten extends javax.swing.JFrame {
         String sqlfraga = "";
         if(selectedDeltagare == "Alla")
         {
-                sqlfraga = "select ROOM.NAME, MEETING.TITLE\n"
+                sqlfraga = "select ROOM.NAME, MEETING.TITLE, MEETING.DESCRIPTION\n"
                 + "from MEETING JOIN ROOM\n"
                 + "on ROOM.ROOMID = MEETING.ROOMID\n"
                 + "join PERSON on \n"
@@ -68,7 +68,7 @@ public class SeMoten extends javax.swing.JFrame {
             System.out.println(sqlfraga);
         }
         else{
-                sqlfraga = "select ROOM.NAME, MEETING.TITLE\n"
+                sqlfraga = "select ROOM.NAME, MEETING.TITLE, MEETING.DESCRIPTION\n"
                 + "from MEETING JOIN ROOM\n"
                 + "on ROOM.ROOMID = MEETING.ROOMID\n"
                 + "join PERSON on \n"
@@ -77,11 +77,11 @@ public class SeMoten extends javax.swing.JFrame {
         System.out.println(sqlfraga);
         }
         
-        fillTable_GetGet(jtbl_seMoten_motesSchema, sqlfraga, "NAME", "TITLE");
+        fillTable_GetGet(jtbl_seMoten_motesSchema, sqlfraga, "NAME", "TITLE", "DESCRIPTION");
         domanTableModel = (DefaultTableModel) jtbl_seMoten_motesSchema.getModel();
     }
    
-    public void fillTable_GetGet(JTable thisTable, String sql, String column1, String column2) {
+    public void fillTable_GetGet(JTable thisTable, String sql, String column1, String column2, String column3) {
 
         DefaultTableModel dtm = (DefaultTableModel) thisTable.getModel();
         System.out.println("Fungerar i första stycket");
@@ -100,7 +100,7 @@ public class SeMoten extends javax.swing.JFrame {
         if (data == null) {
         } else {
             for (HashMap<String, String> row : data) {
-                dtm.addRow(new Object[]{row.get(column1), row.get(column2)});
+                dtm.addRow(new Object[]{row.get(column1), row.get(column2), row.get(column3)});
             }
         }
         thisTable.setModel(dtm); 
@@ -172,19 +172,19 @@ public class SeMoten extends javax.swing.JFrame {
 
         jtbl_seMoten_motesSchema.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Rum", "Titel"
+                "Rum", "Titel", "Beskrivning"
             }
         ));
         jtbl_seMoten_motesSchema.setCellSelectionEnabled(true);
