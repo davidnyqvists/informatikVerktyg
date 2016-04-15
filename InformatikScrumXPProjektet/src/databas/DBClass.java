@@ -140,7 +140,11 @@ public class DBClass {
             return false;
         }
     }
-    
+    /**
+     * Get the roomid by inserting the room name.
+     * @param roomname is the name of the room
+     * @return returns the roomID or null.
+     */
     public String getRoomIDfromRoomname(String roomname) {
         String sql = "Select ROOMID from ROOM where name ='" +roomname+ "'";
         try {
