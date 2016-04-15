@@ -60,28 +60,37 @@ public class SeMoten extends javax.swing.JFrame {
         String sqlfraga = "";
         if(selectedDeltagare == "Alla")
         {
-                sqlfraga = "select ROOM.NAME, MEETING.TITLE, MEETING.DESCRIPTION\n"
-                + "from MEETING JOIN ROOM\n"
-                + "on ROOM.ROOMID = MEETING.ROOMID\n"
-                + "join PERSON on \n"
-                + "PERSON.PERSONID = MEETING.PERSONID\n";
-            System.out.println(sqlfraga);
-        }
-        else{
-                sqlfraga = "select ROOM.NAME, MEETING.TITLE, MEETING.DESCRIPTION\n"
+                sqlfraga = "select ROOM.NAME, MEETING.TITLE, MEETING.DESCRIPTION, DATE_TIME.TIMECODE\n"
                 + "from MEETING JOIN ROOM\n"
                 + "on ROOM.ROOMID = MEETING.ROOMID\n"
                 + "join PERSON on \n"
                 + "PERSON.PERSONID = MEETING.PERSONID\n"
+                + "JOIN MEETING_TIME ON\n"
+                + "MEETING_TIME.MEETING_TIMEID = MEETING.MEETING_TIMEID\n"
+                + "JOIN DATE_TIME ON\n"
+                + "DATE_TIME.DATE_TIMEID = MEETING_TIME.DATE_TIMEID\n";
+                    
+                System.out.println(sqlfraga);
+        }
+        else{
+                sqlfraga = "select ROOM.NAME, MEETING.TITLE, MEETING.DESCRIPTION, DATE_TIME.TIMECODE\n"
+                + "from MEETING JOIN ROOM\n"
+                + "on ROOM.ROOMID = MEETING.ROOMID\n"
+                + "join PERSON on \n"
+                + "PERSON.PERSONID = MEETING.PERSONID\n"
+                + "JOIN MEETING_TIME ON\n"
+                + "MEETING_TIME.MEETING_TIMEID = MEETING.MEETING_TIMEID\n"
+                + "JOIN DATE_TIME ON\n"
+                + "DATE_TIME.DATE_TIMEID = MEETING_TIME.DATE_TIMEID\n"
                 + "WHERE PERSON.NAME = '" + selectedDeltagare + "' ";
         System.out.println(sqlfraga);
         }
         
-        fillTable_GetGet(jtbl_seMoten_motesSchema, sqlfraga, "NAME", "TITLE", "DESCRIPTION");
+        fillTable_GetGet(jtbl_seMoten_motesSchema, sqlfraga, "NAME", "TITLE", "DESCRIPTION", "TIMECODE");
         domanTableModel = (DefaultTableModel) jtbl_seMoten_motesSchema.getModel();
     }
    
-    public void fillTable_GetGet(JTable thisTable, String sql, String column1, String column2, String column3) {
+    public void fillTable_GetGet(JTable thisTable, String sql, String column1, String column2, String column3, String column4) {
 
         DefaultTableModel dtm = (DefaultTableModel) thisTable.getModel();
         System.out.println("Fungerar i första stycket");
@@ -100,7 +109,7 @@ public class SeMoten extends javax.swing.JFrame {
         if (data == null) {
         } else {
             for (HashMap<String, String> row : data) {
-                dtm.addRow(new Object[]{row.get(column1), row.get(column2), row.get(column3)});
+                dtm.addRow(new Object[]{row.get(column1), row.get(column2), row.get(column3), row.get(column4)});
             }
         }
         thisTable.setModel(dtm); 
@@ -172,19 +181,19 @@ public class SeMoten extends javax.swing.JFrame {
 
         jtbl_seMoten_motesSchema.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Rum", "Titel", "Beskrivning"
+                "Rum", "Titel", "Beskrivning", "Tid"
             }
         ));
         jtbl_seMoten_motesSchema.setCellSelectionEnabled(true);
