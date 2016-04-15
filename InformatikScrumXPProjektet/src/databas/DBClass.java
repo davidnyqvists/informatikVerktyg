@@ -70,7 +70,7 @@ public class DBClass {
     }
     public ArrayList<HashMap<String, String>> listAllRooms()
     {
-        String sqlFraga = "select * from Sal";
+        String sqlFraga = "select * from ROOM";
         
         try
         {
@@ -140,9 +140,13 @@ public class DBClass {
             return false;
         }
     }
-    
+    /**
+     * Get the roomid by inserting the room name.
+     * @param roomname is the name of the room
+     * @return returns the roomID or null.
+     */
     public String getRoomIDfromRoomname(String roomname) {
-        String sql = "Select ROOMID from ROOM where name ='" +roomname+ "'";
+        String sql = "Select ROOMID from ROOM where RNAME ='" +roomname+ "'";
         try {
             String ROOMID = idb.fetchSingle(sql);
             return ROOMID;
@@ -154,19 +158,43 @@ public class DBClass {
     }
     
     /**
-     * inserts the date into date_time.
+     * inserts the date into date_time. Also returns the sql query.
      * @param date A string, and should be in the form: YYYY-MM-dd HH:mm:ss
+     * @return Returns the sql query.
      */
-    public void insertDateToDate_Time(String date) {
+    public String insertDateToDate_Time(String date) {
         try {
             String sql = "INSERT INTO DATE_TIME VALUES (" + idb.getAutoIncrement("DATE_TIME", "DATE_TIMEID") + ",'" + date + "')";
             idb.insert(sql);
+            
+            //Return the created ID.
+            return sql;
         }
         catch (InfException e) {
             System.out.println(e.getMessage());
+            return null;
         }
     }
-
+    
+    /**
+     * Add a meeting. It also returns the sql query
+     * @param title
+     * @param description
+     * @param roomID
+     * @return Returns the sql query.
+     */
+    public String addMeeting (String title, String description, String roomID /*, String personID, String meeting_timeID*/ ) {
+        try {
+            String sql = "INSERT INTO MEETING (MEETINGID, TITLE, DESCRIPTION, ROOMID) VALUES (" + idb.getAutoIncrement("MEETING", "MEETINGID") + ",'" + title + "'"
+                    + ",'" + description + "','" + roomID + "')";
+            idb.insert(sql);
+            return sql;
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
     
     // Metod Lägger till nyckeltyp kopplat till tabell i HashMap primeKeys;
     private void addPrimeKeys() {

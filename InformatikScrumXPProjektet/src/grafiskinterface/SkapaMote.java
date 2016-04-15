@@ -5,11 +5,13 @@
  */
 package grafiskinterface;
 
+import static com.teamdev.jxbrowser.chromium.ao.d;
 import databas.DBClass;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Date;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 /**
  *
@@ -301,14 +303,25 @@ public class SkapaMote extends javax.swing.JFrame {
     }//GEN-LAST:event_cb_SkapaMote_deltagareActionPerformed
 
     private void btn_SkapaMote_skapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SkapaMote_skapaActionPerformed
-
-        database.insertDateToDate_Time(getChoosenDate());  
+        //Inserts the choosen date into the database and saves the sql query to a new string. (We want the created ID in the sql query).
+        String sqlQuery = database.insertDateToDate_Time(getChoosenDate()); 
+        System.out.println(sqlQuery);
+        
+        //Inserts the meeting into the database.
+        laggTillMote();
+        
+        
+        
+        JOptionPane.showMessageDialog(null, "Du har nu lagt upp ett möte");
+        //Rensa all input i fälten.
+        /*Massa bra kod*/
+        
         
     }//GEN-LAST:event_btn_SkapaMote_skapaActionPerformed
 
     /**
-     * Gets the choosen date and time to a string (YYYY-MM-dd HH:mm:ss)
-     * @return The choosen date in a string
+     * Gets the choosen date (from datepicket) and time (dropbox) to a string (YYYY-MM-dd HH:mm:ss)
+     * @return The choosen date in one string
      */
     public String getChoosenDate() {
         
@@ -342,7 +355,9 @@ public class SkapaMote extends javax.swing.JFrame {
     }
     
 
-// Metod  Lägger in ett nytt Möte
+    /**
+     * Lägger till ett möte när den anropas.
+     */
     public void laggTillMote() {
        
         String title = Tf_Aktivitet.getText();
@@ -350,7 +365,24 @@ public class SkapaMote extends javax.swing.JFrame {
         String room = cb_SkapaMote_sal.getSelectedItem().toString();
         //Get the roomid
         String roomID = database.getRoomIDfromRoomname(room);
+        String personID = "1"; //This should be the person who is online right now.
+        //Get meeting_timeID
         
+        //Inserts the meeting and saves the sql query to a string. We want to get the auto created ID from the query
+        String theSqlQuery = database.addMeeting(title, description, roomID);
+        //Get the ID from theSqlQuery
+     
+        String[] firstsplit = theSqlQuery.split("(");
+        System.out.println(firstsplit[0]);
+        System.out.println(firstsplit[1]);
+        /*array list<string> x = sql.split(“(”)
+oursubstring = x.get(1)
+
+array list<string> y = oursubstring.split(“,”)
+newMeetingID = y.get(0)*/
+        System.out.println(theSqlQuery);
+
+
         //CurrentLogin.getId();
         
         
@@ -403,7 +435,9 @@ public class SkapaMote extends javax.swing.JFrame {
             
     }
     
-
+    public void laggTillMeeting_Time(){
+        
+    }
     
      private void listHiredToCB()
     {
@@ -470,14 +504,14 @@ public class SkapaMote extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_skapaMote_stangActionPerformed
    
     
-         private void listRoomToCB()
+    private void listRoomToCB()
     {
             
             //Fetches the names of all of the rooms, and holds all info in a cb.
             ArrayList<HashMap<String, String>> allHired = database.listAllRooms();
             for (int i = 0; i < allHired.size(); i++)
             {
-                String name = allHired.get(i).get("NAMN");
+                String name = allHired.get(i).get("RNAME");
                 cb_SkapaMote_sal.addItem(name);
             }
        
@@ -493,10 +527,10 @@ public class SkapaMote extends javax.swing.JFrame {
        }
     //Adds rooms to the combobox
     public void addRooms() {
-        String sql =  "Select NAME FROM ROOM";
+        String sql =  "Select RNAME FROM ROOM";
         ArrayList<HashMap<String, String>> roomList = database.hamtaAlla(sql);
         for (int i = 0; i < roomList.size(); i++) {
-           cb_SkapaMote_sal.addItem(roomList.get(i).get("NAME"));
+           cb_SkapaMote_sal.addItem(roomList.get(i).get("RNAME"));
         
         }
     
