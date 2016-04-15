@@ -161,7 +161,6 @@ public class DBClass {
     public String insertDateToDate_Time(String date) {
         try {
             String sql = "INSERT INTO DATE_TIME VALUES (" + idb.getAutoIncrement("DATE_TIME", "DATE_TIMEID") + ",'" + date + "')";
-            System.out.println(sql);
             idb.insert(sql);
             
             //Return the created ID.
@@ -184,7 +183,6 @@ public class DBClass {
         try {
             String sql = "INSERT INTO MEETING (MEETINGID, TITLE, DESCRIPTION, ROOMID) VALUES (" + idb.getAutoIncrement("MEETING", "MEETINGID") + ",'" + title + "'"
                     + ",'" + description + "','" + roomID + "')";
-            System.out.println(sql);
             idb.insert(sql);
             return sql;
         }
