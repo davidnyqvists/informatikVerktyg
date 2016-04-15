@@ -166,7 +166,18 @@ public class DBClass {
             System.out.println(e.getMessage());
         }
     }
-
+    
+    public void addMeeting (String title, String description, String roomID /*, String personID, String meeting_timeID*/ ) {
+        try {
+            String sql = "INSERT INTO MEETING (MEETINGID, TITLE, DESCRIPTION, ROOMID) VALUES (" + idb.getAutoIncrement("MEETING", "MEETINGID") + ",'" + title + "'"
+                    + ",'" + description + "','" + roomID + "')";
+            idb.insert(sql);
+            
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
     // Metod Lägger till nyckeltyp kopplat till tabell i HashMap primeKeys;
     private void addPrimeKeys() {
