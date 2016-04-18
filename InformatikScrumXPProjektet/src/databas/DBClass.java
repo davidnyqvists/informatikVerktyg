@@ -176,13 +176,21 @@ public class DBClass {
         }
     }
     
-    public void addMeetingTime(String meetingID, String dateTimeID) {
+    /**
+     * inserts meetingID and datetimeID to the database(MEETING_TIME)
+     * @param meetingID
+     * @param dateTimeID
+     * @return the sql query
+     */
+    public String addMeetingTime(String meetingID, String dateTimeID) {
         try {
             String sql = "INSERT INTO meeting_time values (" + idb.getAutoIncrement("meeting_time", "MEETING_TIMEID") + ",'" + meetingID + "','" + dateTimeID + "')";
             idb.insert(sql);
+            return sql;
         }
         catch (InfException e) {
             System.out.println(e.getMessage());
+            return null;
         }
     }
     
@@ -211,6 +219,20 @@ public class DBClass {
         primeKeys.put("MEETING", "MEETINGID");
         primeKeys.put("MEETING_TIME", "MEETING_TIMEID");
        System.out.println(primeKeys);
+    }
+    
+    public void addMeetingTimeToMeeting (String meetingID, String meetingTimeID){
+        String sql = "UPDATE MEETING SET meeting_timeID =" + meetingTimeID + " where meetingID =" + meetingID;
+        try {
+            
+            idb.update(sql);
+            
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+           
+        }
+    
     }
     
     public boolean logIn(String user, String pass) {
