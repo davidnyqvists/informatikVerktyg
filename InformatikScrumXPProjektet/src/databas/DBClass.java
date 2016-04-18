@@ -234,7 +234,24 @@ public class DBClass {
         
     }
     
-    
+    //METOD FÖR ATT HÄMTA ANSTÄLLDS AID MED MOTSVARANDE NAMN
+    public String hamtaAnstalldAid(String namnIn) {
+        String namn = "";
+        String sqlFraga = "SELECT AID FROM ANSTALLD WHERE NAMN = "
+                + "'" + namnIn + "'";
+
+        System.out.println("hamtaAnstalldAid() ger " + namn);
+
+        try {
+            namn = idb.fetchSingle(sqlFraga);
+        
+            System.out.println("Lyckades att hämta namn");
+        } catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return namn;
+    }
     
     
     
