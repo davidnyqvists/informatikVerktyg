@@ -32,6 +32,7 @@ public class SeMoten extends javax.swing.JFrame {
     public SeMoten() {
         initComponents();
         laggTillNamn();
+        fillBox();
 //kraschar när den inte är kommenterad        
 //fillTable_PersonPlattform();
     valueCheck = 0;
@@ -200,6 +201,48 @@ public class SeMoten extends javax.swing.JFrame {
         jtbl_seMoten_motesSchema.setModel(dtm);
     }
     
+    public void fillBox() {
+        ArrayList<HashMap<String, String>> lista = database.hamtaAllNamnPid();
+
+        String namn = "";
+        String namnAid = ""; 
+        String aid = "";
+        if (lista != null) {
+            
+            for (int i = 0; i < lista.size(); i++) {
+                
+                aid = lista.get(i).get("PERSONID");
+                namn = lista.get(i).get("NAME");
+                
+                namnAid += "ID "+ aid + " = " + namn + "\n";
+                   
+                
+                
+          }
+
+            TA_seMote_Personer.setText(namnAid);
+
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -227,6 +270,8 @@ public class SeMoten extends javax.swing.JFrame {
         btn_seMoten_stang = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtbl_seMoten_motesSchema = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TA_seMote_Personer = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -279,6 +324,10 @@ public class SeMoten extends javax.swing.JFrame {
             jtbl_seMoten_motesSchema.getColumnModel().getColumn(1).setResizable(false);
         }
 
+        TA_seMote_Personer.setColumns(20);
+        TA_seMote_Personer.setRows(5);
+        jScrollPane1.setViewportView(TA_seMote_Personer);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -304,7 +353,10 @@ public class SeMoten extends javax.swing.JFrame {
                         .addComponent(btn_seMoten_stang))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(111, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -322,7 +374,9 @@ public class SeMoten extends javax.swing.JFrame {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 281, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(btn_seMoten_stang)
                 .addContainerGap())
         );
@@ -374,12 +428,14 @@ public class SeMoten extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea TA_seMote_Personer;
     private javax.swing.JButton btn_seMoten_stang;
     private org.jdesktop.swingx.JXDatePicker dp_seMoten_datepicker1;
     private org.jdesktop.swingx.JXDatePicker dp_seMoten_datepicker2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jtbl_seMoten_motesSchema;
     // End of variables declaration//GEN-END:variables
