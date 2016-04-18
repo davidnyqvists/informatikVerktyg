@@ -55,6 +55,7 @@ public class SeMoten extends javax.swing.JFrame {
         
        }
     public void fillTable_PersonPlattform() {
+        
         emptyTable_PersonPlattform();
         String selectedDeltagare = jComboBox1.getSelectedItem().toString();
         String sqlfraga = "";
@@ -62,6 +63,9 @@ public class SeMoten extends javax.swing.JFrame {
         String datum2 = getChoosenDateTill();
         System.out.println("Datumet är " + datum1);
         System.out.println("Sista datumet är " + datum2);
+        String valtPersonID =  database.hamtaAnstalldPid(selectedDeltagare);
+        System.out.println("pid är " +  valtPersonID );
+        
         if(selectedDeltagare == "Alla")
         {
                 sqlfraga = "select ROOM.RNAME, MEETING.TITLE, MEETING.DESCRIPTION, DATE_TIME.TIMECODE, PERSON.NAME, ATTENDEES.PERSONID\n"
@@ -90,7 +94,7 @@ public class SeMoten extends javax.swing.JFrame {
                 + "DATE_TIME.DATE_TIMEID = MEETING_TIME.DATE_TIMEID\n"
                 + "JOIN ATTENDEES ON\n"
                 + "ATTENDEES.MEETINGID = MEETING.MEETINGID\n" 
-                + "WHERE DATE_TIME.TIMECODE > '" + datum1 + "' AND DATE_TIME.TIMECODE < '" + datum2 + "'  AND PERSON.NAME = '" + selectedDeltagare + "' ";
+                + "WHERE DATE_TIME.TIMECODE > '" + datum1 + "' AND DATE_TIME.TIMECODE < '" + datum2 + "'  AND ATTENDEES.PERSONID = '" + valtPersonID + "' ";
         System.out.println(sqlfraga);
         }
         
