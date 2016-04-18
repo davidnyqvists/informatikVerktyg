@@ -176,6 +176,16 @@ public class DBClass {
         }
     }
     
+    public void addMeetingTime(String meetingID, String dateTimeID) {
+        try {
+            String sql = "INSERT INTO meeting_time values (" + idb.getAutoIncrement("meeting_time", "MEETING_TIMEID") + ",'" + meetingID + "','" + dateTimeID + "')";
+            idb.insert(sql);
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
     /**
      * Add a meeting. It also returns the sql query
      * @param title
