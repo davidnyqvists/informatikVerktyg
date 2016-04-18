@@ -303,25 +303,38 @@ public class SkapaMote extends javax.swing.JFrame {
     }//GEN-LAST:event_cb_SkapaMote_deltagareActionPerformed
 
     private void btn_SkapaMote_skapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SkapaMote_skapaActionPerformed
-        //Inserts the choosen date into the database and saves the sql query to a new string. (We want the created ID in the sql query).
-        String sqlQuery = database.insertDateToDate_Time(getChoosenDate()); 
-        System.out.println(sqlQuery);
-        
-        //Inserts the meeting into the database.
-        laggTillMote();
+        //Inserts dateTime into the database. Saves the query in a string
+        String sqlQuery = database.insertDateToDate_Time(getChoosenDate());      
+        //Gets the dateTimeID
+        String dateTimeID = getIDwithOneSplit(sqlQuery);
         
         
+              
+        //Inserts Title, description, ID to meeting. Saves the meetingID into a string
+        String meetingID = laggTillMote();
         
-        JOptionPane.showMessageDialog(null, "Du har nu lagt upp ett möte");
+        
+        
+        //insert into meeting_time
+        String meetingTimeID = insertMEETING_TIME(meetingID, dateTimeID);
+        
+        addMeetingTimeToMeeting(meetingID, meetingTimeID);
+        
+        //Insert the meetingTimeID into meeting (the one that just got created)
+        
+        
+        
+        JOptionPane.showMessageDialog(null, "Du har nu lagt till ett möte");
         //Rensa all input i fälten.
         /*Massa bra kod*/
         
         
     }//GEN-LAST:event_btn_SkapaMote_skapaActionPerformed
-
+    
+    
     /**
-     * Gets the choosen date (from datepicket) and time (dropbox) to a string (YYYY-MM-dd HH:mm:ss)
-     * @return The choosen date in one string
+     * Gets the choosen date (from datepicker) and time (dropbox) to a string (YYYY-MM-dd HH:mm:ss)
+     * @return The choosen date
      */
     public String getChoosenDate() {
         
@@ -353,12 +366,12 @@ public class SkapaMote extends javax.swing.JFrame {
         }  
         return finalDate;   
     }
-    
+   
 
     /**
-     * Lägger till ett möte när den anropas.
+     * Lägger till ett möte. Returnerar sql frågan
      */
-    public void laggTillMote() {
+    public String laggTillMote() {
        
         String title = Tf_Aktivitet.getText();
         String description = ta_SkapaMote_Beskrivning.getText();
@@ -368,26 +381,18 @@ public class SkapaMote extends javax.swing.JFrame {
         
         //Inserts the meeting and saves the sql query to a string. We want to get the auto created ID from the query
         String theSqlQuery = database.addMeeting(title, description, roomID);
+        
         //Get the ID from theSqlQuery
-     
-        String firstsplit[] = theSqlQuery.split("(");
-        System.out.println(firstsplit[0]);
-        System.out.println(firstsplit[1]);
-        /*array list<string> x = sql.split(“(”)
-oursubstring = x.get(1)
-
-array list<string> y = oursubstring.split(“,”)
-newMeetingID = y.get(0)*/
-        System.out.println(theSqlQuery);
+        String meetingID = getIDwithTwoSplits(theSqlQuery);
+        
+        return meetingID;
+        
+        
+        
 
 
         //CurrentLogin.getId();
-        
-        
-        
-        
-        
-        
+
         
         
        /*String selectedSal = cb_SkapaMote_sal.getSelectedItem().toString();
@@ -428,13 +433,36 @@ newMeetingID = y.get(0)*/
                     JOptionPane.showMessageDialog(null, "Mötet " + title + " är nu inlagt i databasen.");
                     this.dispose();
                     
-                }*/
-
-            
+                }*/        
     }
     
-    public void laggTillMeeting_Time(){
+    
+    public String insertMEETING_TIME(String meetingID, String dateTimeID){
+        String sqlQuery = database.addMeetingTime(meetingID, dateTimeID);
+        //Get the id
+        String meeting_timeID = getIDwithOneSplit(sqlQuery);
+        return meeting_timeID;
+    }
+    
+    public String getIDwithOneSplit(String sqlQuery){
+        String[] firstsplit = sqlQuery.split("[(]");
         
+        //First split is INSERT INTO MEETING, second is MEETINGID,TITLE,..... and third is the values we want.
+        String[] dateTimeID = firstsplit[1].split(",");
+        return dateTimeID[0];
+    }
+    
+    public String getIDwithTwoSplits(String sqlQuery){
+        String[] firstsplit = sqlQuery.split("[(]");
+        
+        //First split is INSERT INTO MEETING, second is MEETINGID,TITLE,..... and third is the values we want.
+        String[] meetingID = firstsplit[2].split(",");
+        return meetingID[0];
+        
+    }
+    
+    public void addMeetingTimeToMeeting(String meetingID, String meetingTimeID){
+        database.addMeetingTimeToMeeting(meetingID, meetingTimeID);
     }
     
      private void listHiredToCB()
