@@ -101,7 +101,7 @@ public class DBClass {
         return lista;
     }
     
-    //METOD FÖR ATT HÄMTA ANSTÄLLDS AID MED MOTSVARANDE NAMN
+    //METOD FÖR ATT HÄMTA ANSTÄLLDS PID MED MOTSVARANDE NAMN
     public String getId(String sql) {
        String id = "";
        // String sqlFraga = "SELECT PERSONID FROM PERSON WHERE NAME = "
@@ -276,7 +276,20 @@ public class DBClass {
     }
     
     
-    
+    //METOD FÖR ATT HÄMTA ALLA ANSTÄLLDAS NAMN OCH PID 
+    public ArrayList<HashMap<String, String>> hamtaAllNamnPid() {
+        ArrayList<HashMap<String, String>> lista = new ArrayList<HashMap<String, String>>();
+        String sqlFraga = "Select PERSONID,NAME FROM PERSON";
+
+        try {
+            ArrayList<HashMap<String, String>> anstalldLista = idb.fetchRows(sqlFraga);
+            lista = anstalldLista;
+            System.out.println(lista);
+        } catch (InfException e) {
+            System.out.println("Något gick fel");
+        }
+        return lista;
+    }
     
     
     
