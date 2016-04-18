@@ -60,7 +60,7 @@ public class SeMoten extends javax.swing.JFrame {
         String sqlfraga = "";
         if(selectedDeltagare == "Alla")
         {
-                sqlfraga = "select ROOM.RNAME, MEETING.TITLE, MEETING.DESCRIPTION, DATE_TIME.TIMECODE, PERSON.NAME\n"
+                sqlfraga = "select ROOM.RNAME, MEETING.TITLE, MEETING.DESCRIPTION, DATE_TIME.TIMECODE, PERSON.NAME, ATTENDEES.PERSONID\n"
                 + "from MEETING JOIN ROOM\n"
                 + "on ROOM.ROOMID = MEETING.ROOMID\n"
                 + "join PERSON on \n"
@@ -68,8 +68,9 @@ public class SeMoten extends javax.swing.JFrame {
                 + "JOIN MEETING_TIME ON\n"
                 + "MEETING_TIME.MEETING_TIMEID = MEETING.MEETING_TIMEID\n"
                 + "JOIN DATE_TIME ON\n"
-                + "DATE_TIME.DATE_TIMEID = MEETING_TIME.DATE_TIMEID\n";
-                      
+                + "DATE_TIME.DATE_TIMEID = MEETING_TIME.DATE_TIMEID\n"
+                + "JOIN ATTENDEES ON\n"
+                + "ATTENDEES.MEETINGID = MEETING.MEETINGID";       
                 System.out.println(sqlfraga);
         }
         else{
@@ -82,8 +83,8 @@ public class SeMoten extends javax.swing.JFrame {
                 + "MEETING_TIME.MEETING_TIMEID = MEETING.MEETING_TIMEID\n"
                 + "JOIN DATE_TIME ON\n"
                 + "DATE_TIME.DATE_TIMEID = MEETING_TIME.DATE_TIMEID\n"
-                + "Join ATTENDEES ON \n"   
-                + "ATTENDEES.MEETINGID = MEETING.MEETINGID"
+                + "JOIN ATTENDEES ON\n"
+                + "ATTENDEES.MEETINGID = MEETING.MEETINGID\n" 
                 + "WHERE PERSON.NAME = '" + selectedDeltagare + "' ";
         System.out.println(sqlfraga);
         }
@@ -164,7 +165,7 @@ public class SeMoten extends javax.swing.JFrame {
 
         jLabel2.setText("Person");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alla", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alla", " " }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -180,6 +181,11 @@ public class SeMoten extends javax.swing.JFrame {
 
         jtbl_seMoten_motesSchema.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -225,11 +231,10 @@ public class SeMoten extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btn_seMoten_stang)))
-                .addContainerGap(493, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_seMoten_stang))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(111, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -245,9 +250,9 @@ public class SeMoten extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
+                .addGap(26, 26, 26)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 281, Short.MAX_VALUE)
                 .addComponent(btn_seMoten_stang)
                 .addContainerGap())
         );
