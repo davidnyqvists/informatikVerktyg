@@ -34,9 +34,9 @@
                               <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jXDatePicker1" min="-2" max="-2" attributes="0"/>
+                              <Component id="dp_seMoten_datepicker1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                              <Component id="jXDatePicker2" min="-2" max="-2" attributes="0"/>
+                              <Component id="dp_seMoten_datepicker2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -64,8 +64,8 @@
               <Component id="jLabel1" min="-2" pref="37" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jXDatePicker1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jXDatePicker2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dp_seMoten_datepicker1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dp_seMoten_datepicker2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -82,9 +82,9 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker1">
+    <Component class="org.jdesktop.swingx.JXDatePicker" name="dp_seMoten_datepicker1">
     </Component>
-    <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker2">
+    <Component class="org.jdesktop.swingx.JXDatePicker" name="dp_seMoten_datepicker2">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
