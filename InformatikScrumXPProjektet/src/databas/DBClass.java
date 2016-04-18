@@ -234,10 +234,10 @@ public class DBClass {
         
     }
     
-    //METOD FÖR ATT HÄMTA ANSTÄLLDS AID MED MOTSVARANDE NAMN
-    public String hamtaAnstalldAid(String namnIn) {
+    //METOD FÖR ATT HÄMTA ANSTÄLLDS PERSONID MED MOTSVARANDE NAMN
+    public String hamtaAnstalldPid(String namnIn) {
         String namn = "";
-        String sqlFraga = "SELECT AID FROM ANSTALLD WHERE NAMN = "
+        String sqlFraga = "SELECT PERSONID FROM PERSON WHERE NAME = "
                 + "'" + namnIn + "'";
 
         System.out.println("hamtaAnstalldAid() ger " + namn);
