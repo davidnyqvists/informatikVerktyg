@@ -11,6 +11,7 @@ package databas;
  */
 
 //KLASSER VI IMPORTERAR
+import grafiskinterface.CurrentLogin;
 import grafiskinterface.GrafikHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -275,6 +276,40 @@ public class DBClass {
         return namn;
     }
     
+    public void createPost(String title, String text, int correctForum)
+    {
+        try {
+            //Inserts the post into the main post table and assigns the post an incremented value.
+            String sql = "INSERT INTO POST (POSTID, TITLE, TEXT) VALUES (" + idb.getAutoIncrement("POST", "POSTID") + ",'" + title + "','" + text + "')";
+            idb.insert(sql);
+            
+            //Fetches the incremented value to be used in other post tables.
+            String lastID = "SELECT LAST(POSTID) FROM POST";
+            int personID = CurrentLogin.getId();
+            String forum = "";
+            
+            //Checks which forum that the post will be inserted to.
+            if (correctForum == 0)
+            {
+                forum = "POST_FORSKNING";
+            }
+            else if(correctForum == 1)
+                    {
+                        forum = "POST_UTBILDNING";
+                    }
+            else if (correctForum == 2)
+            {
+                forum = "POST_INFORMAL";
+            }
+            
+            //Inserts the post into it's catigorized table.
+            sql = "INSERT INTO "+forum+" (POSTID, PERSONID, DATE_TIMEID) VALUES ("+lastID+", " +personID+", NOW())";
+            idb.insert(sql);
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
     //METOD FÖR ATT HÄMTA ALLA ANSTÄLLDAS NAMN OCH PID 
     public ArrayList<HashMap<String, String>> hamtaAllNamnPid() {
@@ -290,13 +325,28 @@ public class DBClass {
         }
         return lista;
     }
+ // Lägger till nya värden i tabeller
+    public boolean insertIntoTable(String table, String query) {
+        String wholeQuery = "";
+        try {
+            wholeQuery = "INSERT INTO " + table + " VALUES("
+                    + query + ")";
+            idb.insert(wholeQuery);
+            System.out.println("lyckades uppdatera");
+      
+            System.out.println("whole query i try är " + wholeQuery);
+            return true;
+        } catch (InfException e) {
+
+           
+            System.out.println("whole query är " + wholeQuery);
+            return false;
+        }
+
+    }   
     
     
     
-    
-    
-    
-    
-    
-    
+        
+                 
 }
