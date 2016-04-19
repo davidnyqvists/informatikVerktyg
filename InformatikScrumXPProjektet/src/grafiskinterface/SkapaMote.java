@@ -12,6 +12,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Date;
 import java.util.regex.Pattern;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 /**
  *
@@ -65,8 +66,6 @@ public class SkapaMote extends javax.swing.JFrame {
         lbl_SkapaMote_Beskrivning = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ta_SkapaMote_Beskrivning = new javax.swing.JTextArea();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jl_skapaMote_deltagare = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -239,13 +238,6 @@ public class SkapaMote extends javax.swing.JFrame {
         ta_SkapaMote_Beskrivning.setRows(5);
         jScrollPane2.setViewportView(ta_SkapaMote_Beskrivning);
 
-        jl_skapaMote_deltagare.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane3.setViewportView(jl_skapaMote_deltagare);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -269,9 +261,7 @@ public class SkapaMote extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Tf_Aktivitet, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2))))
-                .addGap(35, 35, 35)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,19 +276,14 @@ public class SkapaMote extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(btn_skapaMote_stang)
-                                        .addContainerGap())
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(21, 21, 21))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(87, 87, 87)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btn_skapaMote_stang)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21))))
                     .addComponent(lbl_SkapaMote_Beskrivning)))
         );
 
@@ -330,6 +315,8 @@ public class SkapaMote extends javax.swing.JFrame {
         
         //Inserts the meetingTimeID into meeting (the one that just got created)
         addMeetingTimeToMeeting(meetingID, meetingTimeID);
+        
+        addPeopleToAttendees(meetingID);
         
         JOptionPane.showMessageDialog(null, "Du har nu lagt till ett möte");
         //Rensa all input i fälten.
@@ -489,6 +476,27 @@ public class SkapaMote extends javax.swing.JFrame {
     }
      
      
+     private void addPeopleToAttendees(String meetingID){
+         //Adds people to an array
+        String allaPersoner = tf_SkapaMote_deltagandePersoner.getText();
+        String[] arraySplit = allaPersoner.split("\\n");
+        //Get the PERSONID from the database
+        database.addPersonToAttendees(meetingID, arraySplit);
+        
+        
+        
+        //SQL: SELECT AID FROM PERSON WHERE NAME = 'array
+        
+       /*int length = arraySplit.length;
+       for (int i = 0; i < length; ++i) {
+            System.out.println(arraySplit[i]);
+        }
+       
+        return arraySplit;*/
+        
+         
+     }
+     
         //Adds people to the text box.
     private void btn_SkapaMote_LaggTillDeltagareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SkapaMote_LaggTillDeltagareActionPerformed
         
@@ -504,9 +512,13 @@ public class SkapaMote extends javax.swing.JFrame {
         {
         tf_SkapaMote_deltagandePersoner.setText(meetingList + "\n" + selectedDeltagare);
         }
-        String allaPersoner = tf_SkapaMote_deltagandePersoner.getText();
         
-        ArrayList<String> allaDeltagare;
+        
+        /*
+        int length = arraySplit.length;
+        for (int i = 0; i < length; ++i) {
+            System.out.println(arraySplit[i]);
+        }*/
         
         
        
@@ -627,8 +639,6 @@ public class SkapaMote extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JList<String> jl_skapaMote_deltagare;
     private javax.swing.JLabel lbl_Aktivitet;
     private javax.swing.JLabel lbl_SkapaMote_Beskrivning;
     private javax.swing.JLabel lbl_SkapaMote_deltagare;
