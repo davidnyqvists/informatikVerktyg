@@ -11,14 +11,15 @@ package grafiskinterface;
  */
 public class CreateNewPostFrame extends javax.swing.JFrame {
 
+    static String temp;
     /**
      * Creates new form CreateNewPostFrame
      */
-    public CreateNewPostFrame() {
+    public CreateNewPostFrame(String param) {
         initComponents();
-        
-        
+        temp = param;
     }
+    
     
     
 
@@ -107,7 +108,14 @@ public class CreateNewPostFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_CreateNewPostFrame_PostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CreateNewPostFrame_PostActionPerformed
-        tf_CreateNewPostFrame_PostBody.setText("ailwduawldi wdaiuawdvadwdiuöda  ödauw baw awdadwad dawwdawda gr rrg grgrddadawd awdwd dwa daw  awd  wdadwwdadawdawdwaawdwda dasdasdads  dwawdawd dawaddwa dasdas ddasa dsadas ddwadaw wda wad wwdawdwad dwadwwda wdawda awd dwa aw wdaddwa dawwda dwadwadwadawdwawaddwa dwwad dw wadwa ");
+        
+        if (temp == "rGroup6")
+        {
+            
+        }
+        
+        
+        
     }//GEN-LAST:event_btn_CreateNewPostFrame_PostActionPerformed
 
     private void btn_CreateNewPostFrame_BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CreateNewPostFrame_BackActionPerformed
@@ -144,7 +152,7 @@ public class CreateNewPostFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreateNewPostFrame().setVisible(true);
+                new CreateNewPostFrame(temp).setVisible(true);
             }
         });
     }
