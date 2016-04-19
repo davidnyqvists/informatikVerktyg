@@ -131,7 +131,7 @@ public class DBClass {
         return lista;
     }
     
-    //METOD FÖR ATT HÄMTA ANSTÄLLDS PID MED MOTSVARANDE NAMN
+    //METOD FÖR ATT HÄMTA information
     public String getId(String sql) {
        String id = "";
        // String sqlFraga = "SELECT PERSONID FROM PERSON WHERE NAME = "
