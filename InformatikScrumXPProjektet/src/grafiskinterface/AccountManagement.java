@@ -66,9 +66,51 @@ public class AccountManagement extends javax.swing.JFrame {
     TF_Losen.setText(anvLosen);
     TF_Losen2.setText(anvLosen);
     
+    String sqlPersonId = "SELECT PERSONID FROM PERSON WHERE NAME = '" + valtNamn + "'";
+    String personId = dataBase.getId(sqlPersonId);
     
-    
-    
+    //Kollar Forskningstatus
+    String sqlForskningBox = "SELECT PERSONID FROM PERSON_FORSKNING WHERE PERSONID = '" + personId + "'";
+     String test = dataBase.getId(sqlForskningBox);
+     if (test != null) {
+     chk_AccountManagement_AndraKonto_Research.setSelected(true);
+     
+     
+     }
+     else {chk_AccountManagement_AndraKonto_Research.setSelected(false);}
+     //Kollar utbildningstatus
+     String sqlUtbildningBox = "SELECT PERSONID FROM PERSON_UTBILDNING WHERE PERSONID = '" + personId + "'";
+     String test2 = dataBase.getId(sqlUtbildningBox);
+     if (test != null) {
+     chk_AccountManagement_AndraKonto_Education.setSelected(true);
+     
+    }
+     else {chk_AccountManagement_AndraKonto_Education.setSelected(false);}
+      //Kollar FadminStatus
+     String sqlFadminBox = "SELECT PERSONID FROM PERSON_FORSKNING_ADMIN WHERE PERSONID = '" + personId + "'";
+     String test3 = dataBase.getId(sqlFadminBox);
+     if (test != null) {
+     chk_AccountManagement_AndraKonto_ResearchAdmin.setSelected(true);
+     
+    }
+     else {chk_AccountManagement_AndraKonto_ResearchAdmin.setSelected(false);}
+      //Kollar uAdminStatus
+     String sqlUadminBox = "SELECT PERSONID FROM PERSON_UTBILDNING_ADMIN WHERE PERSONID = '" + personId + "'";
+     String test4 = dataBase.getId(sqlUadminBox);
+     if (test != null) {
+     chk_AccountManagement_AndraKonto_EducationAdmin.setSelected(true);
+     
+    }
+     else {chk_AccountManagement_AndraKonto_EducationAdmin.setSelected(false);}
+      //Kollar utbildningstatus
+     String sqlSadminBox = "SELECT PERSONID FROM PERSON_SYSTEM_ADMIN WHERE PERSONID = '" + personId + "'";
+     String test5 = dataBase.getId(sqlSadminBox);
+     if (test != null) {
+     chk_AccountManagement_AndraKonto_SystemAdmin.setSelected(true);
+     
+    }
+     else {chk_AccountManagement_AndraKonto_SystemAdmin.setSelected(false);}
+     
     
     }
     
