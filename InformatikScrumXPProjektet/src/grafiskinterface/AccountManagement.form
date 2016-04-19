@@ -276,6 +276,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Forskning"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chk_AccountManagement_LaggTillKonto_ResearchActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_Education">
                   <Properties>

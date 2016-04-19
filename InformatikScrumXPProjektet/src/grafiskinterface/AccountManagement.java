@@ -156,6 +156,11 @@ public class AccountManagement extends javax.swing.JFrame {
         tf_Accountmanagement_LaggTillKonto_ChangePassword.setName(""); // NOI18N
 
         chk_AccountManagement_LaggTillKonto_Research.setText("Forskning");
+        chk_AccountManagement_LaggTillKonto_Research.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chk_AccountManagement_LaggTillKonto_ResearchActionPerformed(evt);
+            }
+        });
 
         chk_AccountManagement_LaggTillKonto_Education.setText("Utbildning");
 
@@ -577,6 +582,25 @@ public class AccountManagement extends javax.swing.JFrame {
         catch (InfException e) {
             System.out.println(e);
         }
+   
+        String sqlFraga = "SELECT PERSONID FROM PERSON WHERE NAME = \n"
+                + "'" + GUIName + "'";
+        String newPid = dataBase.getId(sqlFraga);
+        
+        if (chk_AccountManagement_LaggTillKonto_Research.isSelected() == true)
+        {dataBase.insertIntoTable("PERSON_FORSKNING", newPid );}
+       
+        if (chk_AccountManagement_LaggTillKonto_Education.isSelected() == true)
+        {dataBase.insertIntoTable("PERSON_UTBILDNING", newPid);}
+        
+        if (chk_AccountManagement_LaggTillKonto_ResearchAdmin.isSelected() == true)
+        {dataBase.insertIntoTable("PERSON_FORSKNING_ADMIN", newPid);}
+        
+        if (chk_AccountManagement_LaggTillKonto_EducationAdmin.isSelected() == true)
+        {dataBase.insertIntoTable("PERSON_UTBILDNING_ADMIN", newPid);}
+        
+        if (chk_AccountManagement_LaggTillKonto_SystemAdmin.isSelected() == true)
+        {dataBase.insertIntoTable("PERSON_SYSTEM_ADMIN", newPid);}
     }//GEN-LAST:event_btn_AccountManagement_LaggTillKonto_saveActionPerformed
 
     private void btn_AccountManagement_MainPanel_DictionaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccountManagement_MainPanel_DictionaryActionPerformed
@@ -585,6 +609,10 @@ public class AccountManagement extends javax.swing.JFrame {
                             + "U.Admin: Utbildningsadministratör \n S.Admin: Systemadministratör");
                 }
     }//GEN-LAST:event_btn_AccountManagement_MainPanel_DictionaryActionPerformed
+
+    private void chk_AccountManagement_LaggTillKonto_ResearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chk_AccountManagement_LaggTillKonto_ResearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chk_AccountManagement_LaggTillKonto_ResearchActionPerformed
 
     public boolean doesPersonExistInDatabase (String username) {
         String sql = "select username from person";
