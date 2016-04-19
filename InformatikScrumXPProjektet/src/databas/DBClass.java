@@ -46,7 +46,7 @@ public class DBClass {
     
     
     }
-    
+   
     
      /**
      * Lists all hired persons and returns them in the form of an 
