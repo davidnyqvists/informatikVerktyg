@@ -18,8 +18,6 @@ import javax.swing.JOptionPane;
  * @author TeknikFix
  */
 public class SkapaMote extends javax.swing.JFrame {
-
-    
         ArrayList<String> deltagare;
         int deltagareNumber;
         
@@ -32,8 +30,7 @@ public class SkapaMote extends javax.swing.JFrame {
        // listHiredToCB();
         initComponents();
         laggTillNamn();
-        addRooms();
-        
+        addRooms();   
     }
 
     /**
@@ -68,6 +65,8 @@ public class SkapaMote extends javax.swing.JFrame {
         lbl_SkapaMote_Beskrivning = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ta_SkapaMote_Beskrivning = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jl_skapaMote_deltagare = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -240,6 +239,13 @@ public class SkapaMote extends javax.swing.JFrame {
         ta_SkapaMote_Beskrivning.setRows(5);
         jScrollPane2.setViewportView(ta_SkapaMote_Beskrivning);
 
+        jl_skapaMote_deltagare.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(jl_skapaMote_deltagare);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -263,7 +269,9 @@ public class SkapaMote extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Tf_Aktivitet, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2))))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,14 +286,19 @@ public class SkapaMote extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btn_skapaMote_stang)
-                                .addContainerGap())
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(21, 21, 21))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(btn_skapaMote_stang)
+                                        .addContainerGap())
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(21, 21, 21))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(87, 87, 87)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(lbl_SkapaMote_Beskrivning)))
         );
 
@@ -303,25 +316,32 @@ public class SkapaMote extends javax.swing.JFrame {
     }//GEN-LAST:event_cb_SkapaMote_deltagareActionPerformed
 
     private void btn_SkapaMote_skapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SkapaMote_skapaActionPerformed
-        //Inserts the choosen date into the database and saves the sql query to a new string. (We want the created ID in the sql query).
-        String sqlQuery = database.insertDateToDate_Time(getChoosenDate()); 
-        System.out.println(sqlQuery);
+        //Inserts dateTime into the database. Saves the query in a string
+        String sqlQuery = database.insertDateToDate_Time(getChoosenDate());      
+        //Gets the dateTimeID
+        String dateTimeID = getIDwithOneSplit(sqlQuery);
         
-        //Inserts the meeting into the database.
-        laggTillMote();
+    
+        //Inserts Title, description, ID to meeting. Saves the meetingID into a string
+        String meetingID = laggTillMote();
         
+        //inserts into meeting_time
+        String meetingTimeID = insertMEETING_TIME(meetingID, dateTimeID);
         
+        //Inserts the meetingTimeID into meeting (the one that just got created)
+        addMeetingTimeToMeeting(meetingID, meetingTimeID);
         
-        JOptionPane.showMessageDialog(null, "Du har nu lagt upp ett möte");
+        JOptionPane.showMessageDialog(null, "Du har nu lagt till ett möte");
         //Rensa all input i fälten.
         /*Massa bra kod*/
         
         
     }//GEN-LAST:event_btn_SkapaMote_skapaActionPerformed
-
+    
+    
     /**
-     * Gets the choosen date (from datepicket) and time (dropbox) to a string (YYYY-MM-dd HH:mm:ss)
-     * @return The choosen date in one string
+     * Gets the choosen date (from datepicker) and time (dropbox) to a string (YYYY-MM-dd HH:mm:ss)
+     * @return The choosen date
      */
     public String getChoosenDate() {
         
@@ -353,12 +373,12 @@ public class SkapaMote extends javax.swing.JFrame {
         }  
         return finalDate;   
     }
-    
+   
 
     /**
-     * Lägger till ett möte när den anropas.
+     * Lägger till ett möte. Returnerar sql frågan
      */
-    public void laggTillMote() {
+    public String laggTillMote() {
        
         String title = Tf_Aktivitet.getText();
         String description = ta_SkapaMote_Beskrivning.getText();
@@ -368,26 +388,18 @@ public class SkapaMote extends javax.swing.JFrame {
         
         //Inserts the meeting and saves the sql query to a string. We want to get the auto created ID from the query
         String theSqlQuery = database.addMeeting(title, description, roomID);
+        
         //Get the ID from theSqlQuery
-     
-        String firstsplit[] = theSqlQuery.split("(");
-        System.out.println(firstsplit[0]);
-        System.out.println(firstsplit[1]);
-        /*array list<string> x = sql.split(“(”)
-oursubstring = x.get(1)
-
-array list<string> y = oursubstring.split(“,”)
-newMeetingID = y.get(0)*/
-        System.out.println(theSqlQuery);
+        String meetingID = getIDwithTwoSplits(theSqlQuery);
+        
+        return meetingID;
+        
+        
+        
 
 
         //CurrentLogin.getId();
-        
-        
-        
-        
-        
-        
+
         
         
        /*String selectedSal = cb_SkapaMote_sal.getSelectedItem().toString();
@@ -428,15 +440,42 @@ newMeetingID = y.get(0)*/
                     JOptionPane.showMessageDialog(null, "Mötet " + title + " är nu inlagt i databasen.");
                     this.dispose();
                     
-                }*/
-
-            
+                }*/        
     }
     
-    public void laggTillMeeting_Time(){
+    
+    public String insertMEETING_TIME(String meetingID, String dateTimeID){
+        String sqlQuery = database.addMeetingTime(meetingID, dateTimeID);
+        //Get the id
+        String meeting_timeID = getIDwithOneSplit(sqlQuery);
+        return meeting_timeID;
+    }
+    
+    public String getIDwithOneSplit(String sqlQuery){
+        String[] firstsplit = sqlQuery.split("[(]");
+        
+        //First split is INSERT INTO MEETING, second is MEETINGID,TITLE,..... and third is the values we want.
+        String[] dateTimeID = firstsplit[1].split(",");
+        return dateTimeID[0];
+    }
+    
+    public String getIDwithTwoSplits(String sqlQuery){
+        String[] firstsplit = sqlQuery.split("[(]");
+        
+        //First split is INSERT INTO MEETING, second is MEETINGID,TITLE,..... and third is the values we want.
+        String[] meetingID = firstsplit[2].split(",");
+        return meetingID[0];
         
     }
     
+    public void addMeetingTimeToMeeting(String meetingID, String meetingTimeID){
+        database.addMeetingTimeToMeeting(meetingID, meetingTimeID);
+    }
+    
+    
+    /**
+     * Denna gör inget just nu!
+     */
      private void listHiredToCB()
     {
             
@@ -459,12 +498,16 @@ newMeetingID = y.get(0)*/
         
         if (meetingList.equals(""))
         {
-            tf_SkapaMote_deltagandePersoner.setText(selectedDeltagare);        
+            tf_SkapaMote_deltagandePersoner.setText(selectedDeltagare);
         }
         else
         {
         tf_SkapaMote_deltagandePersoner.setText(meetingList + "\n" + selectedDeltagare);
         }
+        String allaPersoner = tf_SkapaMote_deltagandePersoner.getText();
+        
+        ArrayList<String> allaDeltagare;
+        
         
        
         /*String selectedItem = cb_SkapaMote_deltagare.getSelectedItem().toString();
@@ -584,6 +627,8 @@ newMeetingID = y.get(0)*/
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JList<String> jl_skapaMote_deltagare;
     private javax.swing.JLabel lbl_Aktivitet;
     private javax.swing.JLabel lbl_SkapaMote_Beskrivning;
     private javax.swing.JLabel lbl_SkapaMote_deltagare;

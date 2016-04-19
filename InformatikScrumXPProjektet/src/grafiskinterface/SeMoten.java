@@ -32,6 +32,7 @@ public class SeMoten extends javax.swing.JFrame {
     public SeMoten() {
         initComponents();
         laggTillNamn();
+        fillBox();
 //kraschar när den inte är kommenterad        
 //fillTable_PersonPlattform();
     valueCheck = 0;
@@ -55,12 +56,20 @@ public class SeMoten extends javax.swing.JFrame {
         
        }
     public void fillTable_PersonPlattform() {
+        
         emptyTable_PersonPlattform();
         String selectedDeltagare = jComboBox1.getSelectedItem().toString();
         String sqlfraga = "";
+        String datum1 = getChoosenDateFrom();
+        String datum2 = getChoosenDateTill();
+        System.out.println("Datumet är " + datum1);
+        System.out.println("Sista datumet är " + datum2);
+        String valtPersonID =  database.hamtaAnstalldPid(selectedDeltagare);
+        System.out.println("pid är " +  valtPersonID );
+        
         if(selectedDeltagare == "Alla")
         {
-                sqlfraga = "select ROOM.RNAME, MEETING.TITLE, MEETING.DESCRIPTION, DATE_TIME.TIMECODE, PERSON.NAME\n"
+                sqlfraga = "select ROOM.RNAME, MEETING.TITLE, MEETING.DESCRIPTION, DATE_TIME.TIMECODE, PERSON.NAME, ATTENDEES.PERSONID\n"
                 + "from MEETING JOIN ROOM\n"
                 + "on ROOM.ROOMID = MEETING.ROOMID\n"
                 + "join PERSON on \n"
@@ -68,8 +77,10 @@ public class SeMoten extends javax.swing.JFrame {
                 + "JOIN MEETING_TIME ON\n"
                 + "MEETING_TIME.MEETING_TIMEID = MEETING.MEETING_TIMEID\n"
                 + "JOIN DATE_TIME ON\n"
-                + "DATE_TIME.DATE_TIMEID = MEETING_TIME.DATE_TIMEID\n";
-                      
+                + "DATE_TIME.DATE_TIMEID = MEETING_TIME.DATE_TIMEID\n"
+                + "JOIN ATTENDEES ON\n"
+                + "ATTENDEES.MEETINGID = MEETING.MEETINGID\n"
+                + "WHERE DATE_TIME.TIMECODE > '" + datum1 + "' AND DATE_TIME.TIMECODE < '" + datum2 + "' ";        
                 System.out.println(sqlfraga);
         }
         else{
@@ -82,17 +93,78 @@ public class SeMoten extends javax.swing.JFrame {
                 + "MEETING_TIME.MEETING_TIMEID = MEETING.MEETING_TIMEID\n"
                 + "JOIN DATE_TIME ON\n"
                 + "DATE_TIME.DATE_TIMEID = MEETING_TIME.DATE_TIMEID\n"
-                + "Join ATTENDEES ON \n"   
-                + "ATTENDEES.MEETINGID = MEETING.MEETINGID"
-                + "WHERE PERSON.NAME = '" + selectedDeltagare + "' ";
+                + "JOIN ATTENDEES ON\n"
+                + "ATTENDEES.MEETINGID = MEETING.MEETINGID\n" 
+                + "WHERE DATE_TIME.TIMECODE = '" + datum1 + "' AND DATE_TIME.TIMECODE = '" + datum2 + "'  AND ATTENDEES.PERSONID = '" + valtPersonID + "' ";
         System.out.println(sqlfraga);
         }
         
         fillTable_GetGet(jtbl_seMoten_motesSchema, sqlfraga, "RNAME", "TITLE", "DESCRIPTION", "TIMECODE", "NAME", "PERSONID");
         domanTableModel = (DefaultTableModel) jtbl_seMoten_motesSchema.getModel();
     }
+   public String getChoosenDateFrom() {
+        
+        //Get the choosen date.
+        Date choosendate = dp_seMoten_datepicker1.getDate();
+        Calendar cal = Calendar.getInstance();        
+        cal.setTime(choosendate);
+        
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        int month = cal.get(Calendar.MONTH); //0-11
+        month = month + 1;
+        int year = cal.get(Calendar.YEAR);
+        //String hour = cb_SkapaMote_Timmar.getSelectedItem().toString();
+        //String minute = cb_SkapaMote_Minuter.getSelectedItem().toString();
+        //String seconds = "00";
+        
+        //Timeformat: YYYY-MM-dd HH:mm:ss
+        String finalDate = year + "-" + month + "-" + day;
+        
+        //Day and month will print out 1, 2, 3... we want 01,02,03...
+        if (day < 10 && month < 10) {
+            finalDate = year + "-0" + month + "-0" + day;
+        }
+        if (day < 10 && month >= 10) {
+            finalDate = year + "-" + month + "-0" + day;
+        }
+        if (day >= 10 && month < 10) {
+            finalDate = year + "-0" + month + "-" + day;
+        }  
+        return finalDate;   
+    }
    
-    public void fillTable_GetGet(JTable thisTable, String sql, String column1, String column2, String column3, String column4, String column5, String column6) {
+   public String getChoosenDateTill() {
+        
+        //Get the choosen date.
+        Date choosendate = dp_seMoten_datepicker2.getDate();
+        Calendar cal = Calendar.getInstance();        
+        cal.setTime(choosendate);
+        
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        int month = cal.get(Calendar.MONTH); //0-11
+        month = month + 1;
+        int year = cal.get(Calendar.YEAR);
+        //String hour = cb_SkapaMote_Timmar.getSelectedItem().toString();
+        //String minute = cb_SkapaMote_Minuter.getSelectedItem().toString();
+        //String seconds = "00";
+        
+        //Timeformat: YYYY-MM-dd HH:mm:ss
+        String finalDate = year + "-" + month + "-" + day;
+        
+        //Day and month will print out 1, 2, 3... we want 01,02,03...
+        if (day < 10 && month < 10) {
+            finalDate = year + "-0" + month + "-0" + day;
+        }
+        if (day < 10 && month >= 10) {
+            finalDate = year + "-" + month + "-0" + day;
+        }
+        if (day >= 10 && month < 10) {
+            finalDate = year + "-0" + month + "-" + day;
+        }  
+        return finalDate;  
+   }
+   
+   public void fillTable_GetGet(JTable thisTable, String sql, String column1, String column2, String column3, String column4, String column5, String column6) {
 
         DefaultTableModel dtm = (DefaultTableModel) thisTable.getModel();
         System.out.println("Fungerar i första stycket");
@@ -129,6 +201,48 @@ public class SeMoten extends javax.swing.JFrame {
         jtbl_seMoten_motesSchema.setModel(dtm);
     }
     
+    public void fillBox() {
+        ArrayList<HashMap<String, String>> lista = database.hamtaAllNamnPid();
+
+        String namn = "";
+        String namnAid = ""; 
+        String aid = "";
+        if (lista != null) {
+            
+            for (int i = 0; i < lista.size(); i++) {
+                
+                aid = lista.get(i).get("PERSONID");
+                namn = lista.get(i).get("NAME");
+                
+                namnAid += ""+ aid + " = " + namn + "\n";
+                   
+                
+                
+          }
+
+            TA_seMote_Personer.setText(namnAid);
+
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -148,23 +262,28 @@ public class SeMoten extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
-        jXDatePicker2 = new org.jdesktop.swingx.JXDatePicker();
+        dp_seMoten_datepicker1 = new org.jdesktop.swingx.JXDatePicker();
+        dp_seMoten_datepicker2 = new org.jdesktop.swingx.JXDatePicker();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         btn_seMoten_stang = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtbl_seMoten_motesSchema = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TA_seMote_Personer = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 28)); // NOI18N
         jLabel1.setText("Möteskalender");
 
-        jLabel2.setText("Person");
+        jLabel2.setText("Deltagare");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alla", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alla" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -189,6 +308,11 @@ public class SeMoten extends javax.swing.JFrame {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null}
             },
             new String [] {
@@ -203,51 +327,84 @@ public class SeMoten extends javax.swing.JFrame {
             jtbl_seMoten_motesSchema.getColumnModel().getColumn(1).setResizable(false);
         }
 
+        TA_seMote_Personer.setColumns(20);
+        TA_seMote_Personer.setRows(5);
+        jScrollPane1.setViewportView(TA_seMote_Personer);
+
+        jLabel3.setText("Datum från");
+
+        jLabel4.setText("Datum till");
+
+        jLabel5.setText("Namnlista som visar ID");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addComponent(jXDatePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(261, 261, 261)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_seMoten_stang)))
-                .addContainerGap(493, Short.MAX_VALUE))
+                        .addComponent(btn_seMoten_stang)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(176, 176, 176)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(79, 79, 79))))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(dp_seMoten_datepicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dp_seMoten_datepicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 69, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {dp_seMoten_datepicker2, jComboBox1});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jXDatePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(76, 76, 76)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
+                .addContainerGap(51, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dp_seMoten_datepicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(dp_seMoten_datepicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)))
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
+                .addGap(117, 117, 117)
                 .addComponent(btn_seMoten_stang)
                 .addContainerGap())
         );
@@ -299,13 +456,18 @@ public class SeMoten extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea TA_seMote_Personer;
     private javax.swing.JButton btn_seMoten_stang;
+    private org.jdesktop.swingx.JXDatePicker dp_seMoten_datepicker1;
+    private org.jdesktop.swingx.JXDatePicker dp_seMoten_datepicker2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
-    private org.jdesktop.swingx.JXDatePicker jXDatePicker2;
     private javax.swing.JTable jtbl_seMoten_motesSchema;
     // End of variables declaration//GEN-END:variables
 }

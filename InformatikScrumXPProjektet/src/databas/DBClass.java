@@ -102,7 +102,7 @@ public class DBClass {
         return lista;
     }
     
-    //METOD FÖR ATT HÄMTA ANSTÄLLDS AID MED MOTSVARANDE NAMN
+    //METOD FÖR ATT HÄMTA ANSTÄLLDS PID MED MOTSVARANDE NAMN
     public String getId(String sql) {
        String id = "";
        // String sqlFraga = "SELECT PERSONID FROM PERSON WHERE NAME = "
@@ -178,6 +178,24 @@ public class DBClass {
     }
     
     /**
+     * inserts meetingID and datetimeID to the database(MEETING_TIME)
+     * @param meetingID
+     * @param dateTimeID
+     * @return the sql query
+     */
+    public String addMeetingTime(String meetingID, String dateTimeID) {
+        try {
+            String sql = "INSERT INTO meeting_time values (" + idb.getAutoIncrement("meeting_time", "MEETING_TIMEID") + ",'" + meetingID + "','" + dateTimeID + "')";
+            idb.insert(sql);
+            return sql;
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+    
+    /**
      * Add a meeting. It also returns the sql query
      * @param title
      * @param description
@@ -204,6 +222,20 @@ public class DBClass {
        System.out.println(primeKeys);
     }
     
+    public void addMeetingTimeToMeeting (String meetingID, String meetingTimeID){
+        String sql = "UPDATE MEETING SET meeting_timeID =" + meetingTimeID + " where meetingID =" + meetingID;
+        try {
+            
+            idb.update(sql);
+            
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+           
+        }
+    
+    }
+    
     public boolean logIn(String user, String pass) {
             
         String sqlDbPassword = "Select PASSWORD1 from PERSON where username ='" + user + "'";
@@ -225,6 +257,24 @@ public class DBClass {
         
     }
     
+    //METOD FÖR ATT HÄMTA ANSTÄLLDS PERSONID MED MOTSVARANDE NAMN
+    public String hamtaAnstalldPid(String namnIn) {
+        String namn = "";
+        String sqlFraga = "SELECT PERSONID FROM PERSON WHERE NAME = "
+                + "'" + namnIn + "'";
+
+        System.out.println("hamtaAnstalldAid() ger " + namn);
+
+        try {
+            namn = idb.fetchSingle(sqlFraga);
+        
+            System.out.println("Lyckades att hämta namn");
+        } catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return namn;
+    }
     
     public void createPost(String title, String text, int correctForum)
     {
@@ -261,8 +311,20 @@ public class DBClass {
         }
     }
     
-    
-    
+    //METOD FÖR ATT HÄMTA ALLA ANSTÄLLDAS NAMN OCH PID 
+    public ArrayList<HashMap<String, String>> hamtaAllNamnPid() {
+        ArrayList<HashMap<String, String>> lista = new ArrayList<HashMap<String, String>>();
+        String sqlFraga = "Select PERSONID,NAME FROM PERSON";
+
+        try {
+            ArrayList<HashMap<String, String>> anstalldLista = idb.fetchRows(sqlFraga);
+            lista = anstalldLista;
+            System.out.println(lista);
+        } catch (InfException e) {
+            System.out.println("Något gick fel");
+        }
+        return lista;
+    }
     
     
     
