@@ -48,6 +48,34 @@ public class DBClass {
     
     }
     
+    /**
+     * 
+     * @param arrayPerson send in a array with names you want to add to the table Attendees.
+     * @param meetingID The meetingID you want to add the persons in.
+     */
+    public void addPersonToAttendees(String meetingID, String[] arrayPerson) {
+        ArrayList<String> personidList = new ArrayList();
+        try{
+            
+            int length = arrayPerson.length;
+            
+            for (int i = 0; i < length ; ++i){
+                String sql1 = "Select PERSONID from PERSON where NAME = '" + arrayPerson[i] + "'";
+                String personID = idb.fetchSingle(sql1);
+                personidList.add(personID);
+                
+            }
+            for(int i = 0; i < personidList.size(); i++)
+            {
+                String sql2 = "INSERT INTO ATTENDEES values(" + meetingID + "," + personidList.get(i) + ")";
+                idb.insert(sql2);
+            }
+        }
+        catch (InfException e) {
+            System.out.println(e.getMessage());
+        }
+        
+    }
     
      /**
      * Lists all hired persons and returns them in the form of an 
