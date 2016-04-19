@@ -11,127 +11,128 @@ package grafiskinterface;
  */
 public class CurrentLogin {
     
-    private boolean educationAdmin;
-    private boolean researchAdmin;
-    private boolean systemAmdmin;
-    private boolean utbildning;
-    private boolean forskning;
-    private String namn;
-    private String username;
-    private int id;
-
-    
-
-    /**
-     * @return the utbildning
-     */
-    public boolean isUtbildning() {
-        return utbildning;
-    }
-
-    /**
-     * @param utbildning the utbildning to set
-     */
-    public void setUtbildning(boolean utbildning) {
-        this.utbildning = utbildning;
-    }
-
-    /**
-     * @return the forskning
-     */
-    public boolean isForskning() {
-        return forskning;
-    }
-
-    /**
-     * @param forskning the forskning to set
-     */
-    public void setForskning(boolean forskning) {
-        this.forskning = forskning;
-    }
-
-    /**
-     * @return the namn
-     */
-    public String getNamn() {
-        return namn;
-    }
-
-    /**
-     * @param namn the namn to set
-     */
-    public void setNamn(String namn) {
-        this.namn = namn;
-    }
-
-    /**
-     * @return the username
-     */
-    public String getUsername() {
-        return username;
-    }
-
-    /**
-     * @param username the username to set
-     */
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    /**
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
+    private static boolean educationAdmin;
+    private static boolean researchAdmin;
+    private static boolean systemAmdmin;
+    private static boolean utbildning;
+    private static boolean forskning;
+    private static String namn;
+    private static String username;
+    private static int id;
 
     /**
      * @return the educationAdmin
      */
-    public boolean isEducationAdmin() {
+    public static boolean isEducationAdmin() {
         return educationAdmin;
     }
 
     /**
-     * @param educationAdmin the educationAdmin to set
+     * @param aEducationAdmin the educationAdmin to set
      */
-    public void setEducationAdmin(boolean educationAdmin) {
-        this.educationAdmin = educationAdmin;
+    public static void setEducationAdmin(boolean aEducationAdmin) {
+        educationAdmin = aEducationAdmin;
     }
 
     /**
      * @return the researchAdmin
      */
-    public boolean isResearchAdmin() {
+    public static boolean isResearchAdmin() {
         return researchAdmin;
     }
 
     /**
-     * @param researchAdmin the researchAdmin to set
+     * @param aResearchAdmin the researchAdmin to set
      */
-    public void setResearchAdmin(boolean researchAdmin) {
-        this.researchAdmin = researchAdmin;
+    public static void setResearchAdmin(boolean aResearchAdmin) {
+        researchAdmin = aResearchAdmin;
     }
 
     /**
      * @return the systemAmdmin
      */
-    public boolean isSystemAmdmin() {
+    public static boolean isSystemAmdmin() {
         return systemAmdmin;
     }
 
     /**
-     * @param systemAmdmin the systemAmdmin to set
+     * @param aSystemAmdmin the systemAmdmin to set
      */
-    public void setSystemAmdmin(boolean systemAmdmin) {
-        this.systemAmdmin = systemAmdmin;
+    public static void setSystemAmdmin(boolean aSystemAmdmin) {
+        systemAmdmin = aSystemAmdmin;
     }
+
+    /**
+     * @return the utbildning
+     */
+    public static boolean isUtbildning() {
+        return utbildning;
+    }
+
+    /**
+     * @param aUtbildning the utbildning to set
+     */
+    public static void setUtbildning(boolean aUtbildning) {
+        utbildning = aUtbildning;
+    }
+
+    /**
+     * @return the forskning
+     */
+    public static boolean isForskning() {
+        return forskning;
+    }
+
+    /**
+     * @param aForskning the forskning to set
+     */
+    public static void setForskning(boolean aForskning) {
+        forskning = aForskning;
+    }
+
+    /**
+     * @return the namn
+     */
+    public static String getNamn() {
+        return namn;
+    }
+
+    /**
+     * @param aNamn the namn to set
+     */
+    public static void setNamn(String aNamn) {
+        namn = aNamn;
+    }
+
+    /**
+     * @return the username
+     */
+    public static String getUsername() {
+        return username;
+    }
+
+    /**
+     * @param aUsername the username to set
+     */
+    public static void setUsername(String aUsername) {
+        username = aUsername;
+    }
+
+    /**
+     * @return the id
+     */
+    public static int getId() {
+        return id;
+    }
+
+    /**
+     * @param aId the id to set
+     */
+    public static void setId(int aId) {
+        id = aId;
+    }
+
     
+
+   
 }

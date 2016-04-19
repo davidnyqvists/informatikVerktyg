@@ -584,27 +584,27 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_Main_SocialActionPerformed
 
     private void btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePostActionPerformed
-        GrafikHelper.InitieraCreateNewPost();
+        GrafikHelper.InitieraCreateNewPost("rGroup1");
     }//GEN-LAST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup1_CreatePostActionPerformed
 
     private void btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePostActionPerformed
-        GrafikHelper.InitieraCreateNewPost();
+        GrafikHelper.InitieraCreateNewPost("rGroup2");
     }//GEN-LAST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup2_CreatePostActionPerformed
 
     private void btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_CreatePostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_CreatePostActionPerformed
-        GrafikHelper.InitieraCreateNewPost();
+        GrafikHelper.InitieraCreateNewPost("rGroup3");
     }//GEN-LAST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup3_CreatePostActionPerformed
 
     private void btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_CreatePostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_CreatePostActionPerformed
-        GrafikHelper.InitieraCreateNewPost();
+        GrafikHelper.InitieraCreateNewPost("rGroup4");
     }//GEN-LAST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup4_CreatePostActionPerformed
 
     private void btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_CreatePostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_CreatePostActionPerformed
-        GrafikHelper.InitieraCreateNewPost();
+        GrafikHelper.InitieraCreateNewPost("rGroup5");
     }//GEN-LAST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup5_CreatePostActionPerformed
 
     private void btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_CreatePostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_CreatePostActionPerformed
-        GrafikHelper.InitieraCreateNewPost();
+        GrafikHelper.InitieraCreateNewPost("rGroup6");
     }//GEN-LAST:event_btn_Main_MainMiddleWindow_Research_MainPane_ResearchGroup6_CreatePostActionPerformed
 
     private void btn_Main_LoggautActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Main_LoggautActionPerformed
