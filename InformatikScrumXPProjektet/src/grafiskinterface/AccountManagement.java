@@ -50,8 +50,23 @@ public class AccountManagement extends javax.swing.JFrame {
         }
         
        }
+   
+    public void getInfo()
+    {
+    // Fyller namnfältet
+    String valtNamn = cb_AccountManagement_MainPanel_AndraKonto_AccountChooser.getSelectedItem().toString();
+    TF_Namn.setText(valtNamn);
+    
+    String sqlAnvNamn = "SELECT USERNAME FROM PERSON WHERE NAME = '" + valtNamn + "'";
+    String anvNamn = dataBase.getId(sqlAnvNamn);
+    TF_AnvNamn.setText(anvNamn);
     
     
+    
+    
+    
+    
+    }
     
     
     
@@ -89,13 +104,11 @@ public class AccountManagement extends javax.swing.JFrame {
         AndraKonto = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        TF_Namn = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        TF_AnvNamn = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jPasswordField5 = new javax.swing.JPasswordField();
         jLabel16 = new javax.swing.JLabel();
-        jPasswordField6 = new javax.swing.JPasswordField();
         chk_AccountManagement_AndraKonto_Research = new javax.swing.JCheckBox();
         chk_AccountManagement_AndraKonto_Education = new javax.swing.JCheckBox();
         jButton3 = new javax.swing.JButton();
@@ -104,6 +117,8 @@ public class AccountManagement extends javax.swing.JFrame {
         chk_AccountManagement_AndraKonto_EducationAdmin = new javax.swing.JCheckBox();
         chk_AccountManagement_AndraKonto_ResearchAdmin = new javax.swing.JCheckBox();
         chk_AccountManagement_AndraKonto_SystemAdmin = new javax.swing.JCheckBox();
+        TF_Losen2 = new javax.swing.JTextField();
+        TF_Losen = new javax.swing.JTextField();
         TaBortKonto = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -282,11 +297,7 @@ public class AccountManagement extends javax.swing.JFrame {
 
         jLabel15.setText("Lösenord");
 
-        jPasswordField5.setName(""); // NOI18N
-
         jLabel16.setText("Upprepa lösenord");
-
-        jPasswordField6.setName(""); // NOI18N
 
         chk_AccountManagement_AndraKonto_Research.setText("Forskning");
 
@@ -295,12 +306,23 @@ public class AccountManagement extends javax.swing.JFrame {
         jButton3.setText("Spara");
 
         jButton2.setText("Välj");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         chk_AccountManagement_AndraKonto_EducationAdmin.setText("U.Admin");
 
         chk_AccountManagement_AndraKonto_ResearchAdmin.setText("F.Admin");
 
         chk_AccountManagement_AndraKonto_SystemAdmin.setText("S.Admin");
+
+        TF_Losen2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_Losen2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout AndraKontoLayout = new javax.swing.GroupLayout(AndraKonto);
         AndraKonto.setLayout(AndraKontoLayout);
@@ -309,10 +331,8 @@ public class AccountManagement extends javax.swing.JFrame {
             .addGroup(AndraKontoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField6)
-                    .addComponent(jPasswordField5)
-                    .addComponent(jPasswordField6)
+                    .addComponent(TF_Namn, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TF_AnvNamn)
                     .addGroup(AndraKontoLayout.createSequentialGroup()
                         .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
@@ -322,10 +342,11 @@ public class AccountManagement extends javax.swing.JFrame {
                             .addComponent(jLabel13))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cb_AccountManagement_MainPanel_AndraKonto_AccountChooser, 0, 114, Short.MAX_VALUE)
+                            .addComponent(cb_AccountManagement_MainPanel_AndraKonto_AccountChooser, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(AndraKontoLayout.createSequentialGroup()
                                 .addComponent(jButton2)
                                 .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(TF_Losen2)
                     .addGroup(AndraKontoLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -341,7 +362,8 @@ public class AccountManagement extends javax.swing.JFrame {
                                 .addComponent(chk_AccountManagement_AndraKonto_EducationAdmin)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton3)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 34, Short.MAX_VALUE))
+                    .addComponent(TF_Losen))
                 .addContainerGap())
         );
         AndraKontoLayout.setVerticalGroup(
@@ -356,19 +378,19 @@ public class AccountManagement extends javax.swing.JFrame {
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TF_Namn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addComponent(jLabel14)
                 .addGap(2, 2, 2)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TF_AnvNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel15)
                 .addGap(3, 3, 3)
-                .addComponent(jPasswordField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TF_Losen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel16)
                 .addGap(1, 1, 1)
-                .addComponent(jPasswordField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TF_Losen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(chk_AccountManagement_AndraKonto_ResearchAdmin)
@@ -380,7 +402,7 @@ public class AccountManagement extends javax.swing.JFrame {
                     .addComponent(chk_AccountManagement_AndraKonto_EducationAdmin)
                     .addComponent(jButton3)
                     .addComponent(chk_AccountManagement_AndraKonto_Education))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         CardPanelHolder.add(AndraKonto, "card2");
@@ -638,6 +660,16 @@ public class AccountManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_chk_AccountManagement_LaggTillKonto_ResearchActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+getInfo();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void TF_Losen2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_Losen2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_Losen2ActionPerformed
+
     public boolean doesPersonExistInDatabase (String username) {
         String sql = "select username from person";
         ArrayList<String> A;
@@ -699,6 +731,10 @@ public class AccountManagement extends javax.swing.JFrame {
     private javax.swing.JPanel CardPanelHolder;
     private javax.swing.JPanel LaggTillKonto;
     private javax.swing.JPanel MainPanel;
+    private javax.swing.JTextField TF_AnvNamn;
+    private javax.swing.JTextField TF_Losen;
+    private javax.swing.JTextField TF_Losen2;
+    private javax.swing.JTextField TF_Namn;
     private javax.swing.JPanel TaBortKonto;
     private javax.swing.JButton btn_AccountManagement_LaggTillKonto_save;
     private javax.swing.JButton btn_AccountManagement_MainPanel_AndraKonto;
@@ -737,12 +773,8 @@ public class AccountManagement extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JPasswordField jPasswordField10;
-    private javax.swing.JPasswordField jPasswordField5;
-    private javax.swing.JPasswordField jPasswordField6;
     private javax.swing.JPasswordField jPasswordField9;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_Password;
     private javax.swing.JLabel lbl_AccountManagement_LaggTillKonto_RepeatPassword;
