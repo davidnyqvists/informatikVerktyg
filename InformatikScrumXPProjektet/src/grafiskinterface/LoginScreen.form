@@ -95,8 +95,11 @@
   <SubComponents>
     <Component class="javax.swing.JTextField" name="tf_LoginScreen_Username">
       <Properties>
-        <Property name="text" type="java.lang.String" value="bacon93"/>
+        <Property name="text" type="java.lang.String" value="systemadmin"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tf_LoginScreen_UsernameActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl_LoginScreen_Title">
       <Properties>
@@ -134,7 +137,7 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="pf_LoginScreen_Password">
       <Properties>
-        <Property name="text" type="java.lang.String" value="losenord"/>
+        <Property name="text" type="java.lang.String" value="systemadmin"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pf_LoginScreen_PasswordActionPerformed"/>
