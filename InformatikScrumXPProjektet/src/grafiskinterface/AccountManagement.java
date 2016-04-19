@@ -61,6 +61,10 @@ public class AccountManagement extends javax.swing.JFrame {
     String anvNamn = dataBase.getId(sqlAnvNamn);
     TF_AnvNamn.setText(anvNamn);
     
+    String sqlLosen = "SELECT PASSWORD1 FROM PERSON WHERE NAME = '" + valtNamn + "'";
+    String anvLosen = dataBase.getId(sqlLosen);
+    TF_Losen.setText(anvLosen);
+    TF_Losen2.setText(anvLosen);
     
     
     
