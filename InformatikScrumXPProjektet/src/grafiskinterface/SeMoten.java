@@ -95,7 +95,7 @@ public class SeMoten extends javax.swing.JFrame {
                 + "DATE_TIME.DATE_TIMEID = MEETING_TIME.DATE_TIMEID\n"
                 + "JOIN ATTENDEES ON\n"
                 + "ATTENDEES.MEETINGID = MEETING.MEETINGID\n" 
-                + "WHERE DATE_TIME.TIMECODE > '" + datum1 + "' AND DATE_TIME.TIMECODE < '" + datum2 + "'  AND ATTENDEES.PERSONID = '" + valtPersonID + "' ";
+                + "WHERE DATE_TIME.TIMECODE = '" + datum1 + "' AND DATE_TIME.TIMECODE = '" + datum2 + "'  AND ATTENDEES.PERSONID = '" + valtPersonID + "' ";
         System.out.println(sqlfraga);
         }
         
@@ -214,7 +214,7 @@ public class SeMoten extends javax.swing.JFrame {
                 aid = lista.get(i).get("PERSONID");
                 namn = lista.get(i).get("NAME");
                 
-                namnAid += "ID "+ aid + " = " + namn + "\n";
+                namnAid += ""+ aid + " = " + namn + "\n";
                    
                 
                 
