@@ -325,7 +325,25 @@ public class DBClass {
         }
         return lista;
     }
-    
+ // Lägger till nya värden i tabeller
+    public boolean insertIntoTable(String table, String query) {
+        String wholeQuery = "";
+        try {
+            wholeQuery = "INSERT INTO " + table + " VALUES("
+                    + query + ")";
+            idb.insert(wholeQuery);
+            System.out.println("lyckades uppdatera");
+      
+            System.out.println("whole query i try är " + wholeQuery);
+            return true;
+        } catch (InfException e) {
+
+           
+            System.out.println("whole query är " + wholeQuery);
+            return false;
+        }
+
+    }   
     
     
     
