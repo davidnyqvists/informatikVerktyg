@@ -27,6 +27,7 @@ public class LoginScreen extends javax.swing.JFrame {
     public LoginScreen() {
         dataBase = new DBClass();
         currentUser = new CurrentLogin();
+        this.setLocationRelativeTo(null);
         initComponents();
         
         lbl_LoginScreen_ErrorMessage.setVisible(false);

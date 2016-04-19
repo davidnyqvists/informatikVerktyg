@@ -20,6 +20,7 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();   
+        this.setLocationRelativeTo(null);
         CardLayout card = (CardLayout)pnl_Main_MainMiddleWindow.getLayout();
         card.show(pnl_Main_MainMiddleWindow, "card4");
         

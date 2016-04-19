@@ -17,6 +17,7 @@ public class CreateNewPostFrame extends javax.swing.JFrame {
      */
     public CreateNewPostFrame(String param) {
         initComponents();
+        this.setLocationRelativeTo(null);
         temp = param;
     }
     
