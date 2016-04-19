@@ -11,6 +11,7 @@ package databas;
  */
 
 //KLASSER VI IMPORTERAR
+
 import grafiskinterface.CurrentLogin;
 import grafiskinterface.GrafikHelper;
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public class DBClass {
      * @param meetingID The meetingID you want to add the persons in.
      */
     public void addPersonToAttendees(String meetingID, String[] arrayPerson) {
-        ArrayList<String> personidList = new ArrayList();
+        ArrayList<String> personidList = new ArrayList<String>();
         try{
             
             int length = arrayPerson.length;
