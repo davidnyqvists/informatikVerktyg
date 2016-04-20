@@ -22,7 +22,7 @@ public class CurrentLoginHolder {
     public static CurrentLogin getNuvarandeLogIn() {
         return nuvarandeLogIn;
     }
-
+/*
     public static void InitieraHoldern(CurrentLogin currentUser, String username, String password) {
         nuvarandeLogIn = currentUser;
         user = username;
@@ -33,7 +33,7 @@ public class CurrentLoginHolder {
         currentUser.setUtbildning(true);
         currentUser.setForskning(true);
     }
-    
+  */  
     
 }
 
