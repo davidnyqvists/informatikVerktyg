@@ -48,16 +48,20 @@
                   <Component id="CardPanelHolder" max="32767" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btn_AccountManagement_MainPanel_Avsluta" alignment="1" min="-2" pref="75" max="-2" attributes="0"/>
-                          <Component id="btn_AccountManagement_MainPanel_Loggaut" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_AccountManagement_MainPanel_AndraKonto" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btn_AccountManagement_MainPanel_LaggTillKonto" alignment="1" pref="107" max="32767" attributes="0"/>
-                          <Component id="btn_AccountManagement_MainPanel_TaBortKonto" alignment="1" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btn_AccountManagement_MainPanel_Avsluta" alignment="1" min="-2" pref="75" max="-2" attributes="0"/>
+                              <Component id="btn_AccountManagement_MainPanel_Loggaut" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_AccountManagement_MainPanel_AndraKonto" alignment="1" max="32767" attributes="0"/>
+                              <Component id="btn_AccountManagement_MainPanel_TaBortKonto" alignment="1" pref="107" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="btn_AccountManagement_MainPanel_Dictionary" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="btn_AccountManagement_MainPanel_Dictionary" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="btn_AccountManagement_MainPanel_LaggTillKonto" min="-2" pref="107" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -136,380 +140,6 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="LaggTillKonto">
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                  <CardConstraints cardName="card1"/>
-                </Constraint>
-              </Constraints>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tf_AccountManagement_LaggTillKonto_Name" alignment="1" max="32767" attributes="0"/>
-                              <Component id="tf_AccountManagement_LaggTillKonto_Username" alignment="0" max="32767" attributes="0"/>
-                              <Component id="tf_AccountManagement_LaggTillKonto_Password" alignment="0" max="32767" attributes="0"/>
-                              <Component id="tf_Accountmanagement_LaggTillKonto_ChangePassword" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lbl_AccountManagement_LaggTillKonto_username" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lbl_AccountManagement_LaggTillKonto_Password" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lbl_AccountManagement_LaggTillKonto_RepeatPassword" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lbl_AccountManagement_LaggTillKonto_name" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="chk_AccountManagement_LaggTillKonto_Research" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="chk_AccountManagement_LaggTillKonto_ResearchAdmin" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="chk_AccountManagement_LaggTillKonto_SystemAdmin" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="chk_AccountManagement_LaggTillKonto_Education" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="chk_AccountManagement_LaggTillKonto_EducationAdmin" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="btn_AccountManagement_LaggTillKonto_save" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="0" pref="18" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="lbl_AccountManagement_LaggTillKonto_name" min="-2" pref="14" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="tf_AccountManagement_LaggTillKonto_Name" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="lbl_AccountManagement_LaggTillKonto_username" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                          <Component id="tf_AccountManagement_LaggTillKonto_Username" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lbl_AccountManagement_LaggTillKonto_Password" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                          <Component id="tf_AccountManagement_LaggTillKonto_Password" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lbl_AccountManagement_LaggTillKonto_RepeatPassword" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                          <Component id="tf_Accountmanagement_LaggTillKonto_ChangePassword" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="chk_AccountManagement_LaggTillKonto_ResearchAdmin" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="chk_AccountManagement_LaggTillKonto_Research" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="chk_AccountManagement_LaggTillKonto_SystemAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="chk_AccountManagement_LaggTillKonto_Education" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="chk_AccountManagement_LaggTillKonto_EducationAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_AccountManagement_LaggTillKonto_save" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="38" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel17">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="18" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="L&#xe4;gg till konto"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
-                        <CompoundBorder/>
-                      </Border>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbl_AccountManagement_LaggTillKonto_name">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Namn"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="tf_AccountManagement_LaggTillKonto_Name">
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbl_AccountManagement_LaggTillKonto_username">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Anv&#xe4;ndarnamn"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="tf_AccountManagement_LaggTillKonto_Username">
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbl_AccountManagement_LaggTillKonto_Password">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JPasswordField" name="tf_AccountManagement_LaggTillKonto_Password">
-                  <Properties>
-                    <Property name="name" type="java.lang.String" value="" noResource="true"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbl_AccountManagement_LaggTillKonto_RepeatPassword">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Upprepa l&#xf6;senord"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JPasswordField" name="tf_Accountmanagement_LaggTillKonto_ChangePassword">
-                  <Properties>
-                    <Property name="name" type="java.lang.String" value="" noResource="true"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_Research">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Forskning"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chk_AccountManagement_LaggTillKonto_ResearchActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_Education">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Utbildning"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="btn_AccountManagement_LaggTillKonto_save">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Spara"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_AccountManagement_LaggTillKonto_saveActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_ResearchAdmin">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="F.Admin"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_EducationAdmin">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="U.Admin"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_SystemAdmin">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="S.Admin"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="AndraKonto">
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                  <CardConstraints cardName="card2"/>
-                </Constraint>
-              </Constraints>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="TF_Namn" alignment="1" max="32767" attributes="0"/>
-                              <Component id="TF_AnvNamn" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="cb_AccountManagement_MainPanel_AndraKonto_AccountChooser" max="32767" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <Component id="TF_Losen2" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="chk_AccountManagement_AndraKonto_Research" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="chk_AccountManagement_AndraKonto_ResearchAdmin" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="chk_AccountManagement_AndraKonto_SystemAdmin" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="chk_AccountManagement_AndraKonto_Education" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="chk_AccountManagement_AndraKonto_EducationAdmin" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jButton3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="TF_Losen" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="cb_AccountManagement_MainPanel_AndraKonto_AccountChooser" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel12" min="-2" pref="22" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabel13" min="-2" pref="14" max="-2" attributes="0"/>
-                              <Component id="jButton2" min="-2" pref="18" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TF_Namn" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                          <Component id="TF_AnvNamn" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                          <Component id="TF_Losen" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                          <Component id="TF_Losen2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="chk_AccountManagement_AndraKonto_ResearchAdmin" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="chk_AccountManagement_AndraKonto_SystemAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="chk_AccountManagement_AndraKonto_Research" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="chk_AccountManagement_AndraKonto_EducationAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="chk_AccountManagement_AndraKonto_Education" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel12">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="18" style="1"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="&#xc4;ndra konto"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
-                        <CompoundBorder/>
-                      </Border>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel13">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Namn"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="TF_Namn">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel14">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Anv&#xe4;ndarnamn"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="TF_AnvNamn">
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel15">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel16">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Upprepa l&#xf6;senord"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_AndraKonto_Research">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Forskning"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_AndraKonto_Education">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Utbildning"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton3">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Spara"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="cb_AccountManagement_MainPanel_AndraKonto_AccountChooser">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="0"/>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JButton" name="jButton2">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="V&#xe4;lj"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_AndraKonto_EducationAdmin">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="U.Admin"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_AndraKonto_ResearchAdmin">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="F.Admin"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_AndraKonto_SystemAdmin">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="S.Admin"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="TF_Losen2">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_Losen2ActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JTextField" name="TF_Losen">
-                </Component>
-              </SubComponents>
-            </Container>
             <Container class="javax.swing.JPanel" name="TaBortKonto">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
@@ -528,7 +158,7 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="148" max="32767" attributes="0"/>
+                          <EmptySpace pref="416" max="32767" attributes="0"/>
                           <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -568,7 +198,7 @@
                           <Component id="cb_AccountManagement_MainPanel_AndraKonto_AccountChooser1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButton4" min="-2" pref="18" max="-2" attributes="0"/>
-                          <EmptySpace pref="207" max="32767" attributes="0"/>
+                          <EmptySpace pref="349" max="32767" attributes="0"/>
                           <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -596,7 +226,7 @@
                               <Component id="jCheckBox9" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jCheckBox10" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="35" max="32767" attributes="0"/>
+                              <EmptySpace pref="184" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -778,6 +408,383 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ta bort konto"/>
                   </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="LaggTillKonto">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                  <CardConstraints cardName="card1"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="tf_Accountmanagement_LaggTillKonto_ChangePassword" max="32767" attributes="0"/>
+                                      <Component id="tf_AccountManagement_LaggTillKonto_Password" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="tf_AccountManagement_LaggTillKonto_Username" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbl_AccountManagement_LaggTillKonto_username" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl_AccountManagement_LaggTillKonto_Password" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl_AccountManagement_LaggTillKonto_RepeatPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl_AccountManagement_LaggTillKonto_name" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tf_AccountManagement_LaggTillKonto_Name" alignment="0" min="-2" pref="472" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="chk_AccountManagement_LaggTillKonto_Education" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="chk_AccountManagement_LaggTillKonto_EducationAdmin" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="chk_AccountManagement_LaggTillKonto_Research" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="chk_AccountManagement_LaggTillKonto_ResearchAdmin" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="chk_AccountManagement_LaggTillKonto_SystemAdmin" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btn_AccountManagement_LaggTillKonto_save" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                          <Component id="lbl_AccountManagement_LaggTillKonto_name" min="-2" pref="14" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="tf_AccountManagement_LaggTillKonto_Name" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          <Component id="lbl_AccountManagement_LaggTillKonto_username" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Component id="tf_AccountManagement_LaggTillKonto_Username" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lbl_AccountManagement_LaggTillKonto_Password" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                          <Component id="tf_AccountManagement_LaggTillKonto_Password" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lbl_AccountManagement_LaggTillKonto_RepeatPassword" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          <Component id="tf_Accountmanagement_LaggTillKonto_ChangePassword" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="chk_AccountManagement_LaggTillKonto_ResearchAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chk_AccountManagement_LaggTillKonto_SystemAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="chk_AccountManagement_LaggTillKonto_Research" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="chk_AccountManagement_LaggTillKonto_Education" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="chk_AccountManagement_LaggTillKonto_EducationAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_AccountManagement_LaggTillKonto_save" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="96" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel17">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="L&#xe4;gg till konto"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
+                        <CompoundBorder/>
+                      </Border>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_AccountManagement_LaggTillKonto_name">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Namn"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="tf_AccountManagement_LaggTillKonto_Name">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_AccountManagement_LaggTillKonto_username">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Anv&#xe4;ndarnamn"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="tf_AccountManagement_LaggTillKonto_Username">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_AccountManagement_LaggTillKonto_Password">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JPasswordField" name="tf_AccountManagement_LaggTillKonto_Password">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_AccountManagement_LaggTillKonto_RepeatPassword">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Upprepa l&#xf6;senord"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JPasswordField" name="tf_Accountmanagement_LaggTillKonto_ChangePassword">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_Research">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Forskning"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chk_AccountManagement_LaggTillKonto_ResearchActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_Education">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Utbildning"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btn_AccountManagement_LaggTillKonto_save">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Spara"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_AccountManagement_LaggTillKonto_saveActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_ResearchAdmin">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="F.Admin"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_EducationAdmin">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="U.Admin"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_LaggTillKonto_SystemAdmin">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="S.Admin"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="AndraKonto">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                  <CardConstraints cardName="card2"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="TF_AnvNamn" max="32767" attributes="0"/>
+                              <Component id="TF_Namn" alignment="1" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="cb_AccountManagement_MainPanel_AndraKonto_AccountChooser" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="319" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Component id="TF_Losen2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="TF_Losen" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="chk_AccountManagement_AndraKonto_Research" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="chk_AccountManagement_AndraKonto_ResearchAdmin" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="chk_AccountManagement_AndraKonto_SystemAdmin" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="chk_AccountManagement_AndraKonto_Education" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="chk_AccountManagement_AndraKonto_EducationAdmin" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel12" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                              <Component id="cb_AccountManagement_MainPanel_AndraKonto_AccountChooser" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          <Component id="jButton2" min="-2" pref="18" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="jLabel13" min="-2" pref="14" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="TF_Namn" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Component id="TF_AnvNamn" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                          <Component id="TF_Losen" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="TF_Losen2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="chk_AccountManagement_AndraKonto_ResearchAdmin" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="chk_AccountManagement_AndraKonto_SystemAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chk_AccountManagement_AndraKonto_Research" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="chk_AccountManagement_AndraKonto_EducationAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="chk_AccountManagement_AndraKonto_Education" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="72" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel12">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#xc4;ndra konto"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
+                        <CompoundBorder/>
+                      </Border>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel13">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Namn"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="TF_Namn">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel14">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Anv&#xe4;ndarnamn"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="TF_AnvNamn">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel15">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel16">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Upprepa l&#xf6;senord"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_AndraKonto_Research">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Forskning"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_AndraKonto_Education">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Utbildning"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Spara"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cb_AccountManagement_MainPanel_AndraKonto_AccountChooser">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="V&#xe4;lj"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_AndraKonto_EducationAdmin">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="U.Admin"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_AndraKonto_ResearchAdmin">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="F.Admin"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chk_AccountManagement_AndraKonto_SystemAdmin">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="S.Admin"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="TF_Losen2">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TF_Losen2ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="TF_Losen">
                 </Component>
               </SubComponents>
             </Container>

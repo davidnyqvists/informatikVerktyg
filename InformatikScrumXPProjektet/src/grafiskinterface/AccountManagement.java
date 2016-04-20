@@ -29,6 +29,7 @@ public class AccountManagement extends javax.swing.JFrame {
         dataBase = new DBClass();
        
         initComponents();
+        this.setLocationRelativeTo(null);
          laggTillNamn();
     }
 
@@ -131,6 +132,21 @@ public class AccountManagement extends javax.swing.JFrame {
         btn_AccountManagement_MainPanel_Loggaut = new javax.swing.JButton();
         btn_AccountManagement_MainPanel_Avsluta = new javax.swing.JButton();
         CardPanelHolder = new javax.swing.JPanel();
+        TaBortKonto = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jTextField10 = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jPasswordField9 = new javax.swing.JPasswordField();
+        jLabel26 = new javax.swing.JLabel();
+        jPasswordField10 = new javax.swing.JPasswordField();
+        jCheckBox9 = new javax.swing.JCheckBox();
+        jCheckBox10 = new javax.swing.JCheckBox();
+        jButton4 = new javax.swing.JButton();
+        cb_AccountManagement_MainPanel_AndraKonto_AccountChooser1 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
         LaggTillKonto = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         lbl_AccountManagement_LaggTillKonto_name = new javax.swing.JLabel();
@@ -165,21 +181,6 @@ public class AccountManagement extends javax.swing.JFrame {
         chk_AccountManagement_AndraKonto_SystemAdmin = new javax.swing.JCheckBox();
         TF_Losen2 = new javax.swing.JTextField();
         TF_Losen = new javax.swing.JTextField();
-        TaBortKonto = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
-        jPasswordField9 = new javax.swing.JPasswordField();
-        jLabel26 = new javax.swing.JLabel();
-        jPasswordField10 = new javax.swing.JPasswordField();
-        jCheckBox9 = new javax.swing.JCheckBox();
-        jCheckBox10 = new javax.swing.JCheckBox();
-        jButton4 = new javax.swing.JButton();
-        cb_AccountManagement_MainPanel_AndraKonto_AccountChooser1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
         btn_AccountManagement_MainPanel_Dictionary = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -223,235 +224,6 @@ public class AccountManagement extends javax.swing.JFrame {
 
         CardPanelHolder.setBackground(new java.awt.Color(153, 153, 153));
         CardPanelHolder.setLayout(new java.awt.CardLayout());
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel17.setText("Lägg till konto");
-        jLabel17.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-
-        lbl_AccountManagement_LaggTillKonto_name.setText("Namn");
-
-        lbl_AccountManagement_LaggTillKonto_username.setText("Användarnamn");
-
-        lbl_AccountManagement_LaggTillKonto_Password.setText("Lösenord");
-
-        tf_AccountManagement_LaggTillKonto_Password.setName(""); // NOI18N
-
-        lbl_AccountManagement_LaggTillKonto_RepeatPassword.setText("Upprepa lösenord");
-
-        tf_Accountmanagement_LaggTillKonto_ChangePassword.setName(""); // NOI18N
-
-        chk_AccountManagement_LaggTillKonto_Research.setText("Forskning");
-        chk_AccountManagement_LaggTillKonto_Research.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chk_AccountManagement_LaggTillKonto_ResearchActionPerformed(evt);
-            }
-        });
-
-        chk_AccountManagement_LaggTillKonto_Education.setText("Utbildning");
-
-        btn_AccountManagement_LaggTillKonto_save.setText("Spara");
-        btn_AccountManagement_LaggTillKonto_save.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_AccountManagement_LaggTillKonto_saveActionPerformed(evt);
-            }
-        });
-
-        chk_AccountManagement_LaggTillKonto_ResearchAdmin.setText("F.Admin");
-
-        chk_AccountManagement_LaggTillKonto_EducationAdmin.setText("U.Admin");
-
-        chk_AccountManagement_LaggTillKonto_SystemAdmin.setText("S.Admin");
-
-        javax.swing.GroupLayout LaggTillKontoLayout = new javax.swing.GroupLayout(LaggTillKonto);
-        LaggTillKonto.setLayout(LaggTillKontoLayout);
-        LaggTillKontoLayout.setHorizontalGroup(
-            LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LaggTillKontoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tf_AccountManagement_LaggTillKonto_Name, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tf_AccountManagement_LaggTillKonto_Username)
-                    .addComponent(tf_AccountManagement_LaggTillKonto_Password)
-                    .addComponent(tf_Accountmanagement_LaggTillKonto_ChangePassword)
-                    .addGroup(LaggTillKontoLayout.createSequentialGroup()
-                        .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17)
-                            .addComponent(lbl_AccountManagement_LaggTillKonto_username)
-                            .addComponent(lbl_AccountManagement_LaggTillKonto_Password)
-                            .addComponent(lbl_AccountManagement_LaggTillKonto_RepeatPassword)
-                            .addComponent(lbl_AccountManagement_LaggTillKonto_name)
-                            .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, LaggTillKontoLayout.createSequentialGroup()
-                                    .addComponent(chk_AccountManagement_LaggTillKonto_Research)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(chk_AccountManagement_LaggTillKonto_ResearchAdmin)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(chk_AccountManagement_LaggTillKonto_SystemAdmin))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, LaggTillKontoLayout.createSequentialGroup()
-                                    .addComponent(chk_AccountManagement_LaggTillKonto_Education)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(chk_AccountManagement_LaggTillKonto_EducationAdmin)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btn_AccountManagement_LaggTillKonto_save))))
-                        .addGap(0, 18, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        LaggTillKontoLayout.setVerticalGroup(
-            LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LaggTillKontoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_AccountManagement_LaggTillKonto_name, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tf_AccountManagement_LaggTillKonto_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addComponent(lbl_AccountManagement_LaggTillKonto_username)
-                .addGap(2, 2, 2)
-                .addComponent(tf_AccountManagement_LaggTillKonto_Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_AccountManagement_LaggTillKonto_Password)
-                .addGap(3, 3, 3)
-                .addComponent(tf_AccountManagement_LaggTillKonto_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_AccountManagement_LaggTillKonto_RepeatPassword)
-                .addGap(1, 1, 1)
-                .addComponent(tf_Accountmanagement_LaggTillKonto_ChangePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chk_AccountManagement_LaggTillKonto_ResearchAdmin)
-                    .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(chk_AccountManagement_LaggTillKonto_Research)
-                        .addComponent(chk_AccountManagement_LaggTillKonto_SystemAdmin)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chk_AccountManagement_LaggTillKonto_Education)
-                    .addComponent(chk_AccountManagement_LaggTillKonto_EducationAdmin)
-                    .addComponent(btn_AccountManagement_LaggTillKonto_save))
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-
-        CardPanelHolder.add(LaggTillKonto, "card1");
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel12.setText("Ändra konto");
-        jLabel12.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-
-        jLabel13.setText("Namn");
-
-        jLabel14.setText("Användarnamn");
-
-        jLabel15.setText("Lösenord");
-
-        jLabel16.setText("Upprepa lösenord");
-
-        chk_AccountManagement_AndraKonto_Research.setText("Forskning");
-
-        chk_AccountManagement_AndraKonto_Education.setText("Utbildning");
-
-        jButton3.setText("Spara");
-
-        jButton2.setText("Välj");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        chk_AccountManagement_AndraKonto_EducationAdmin.setText("U.Admin");
-
-        chk_AccountManagement_AndraKonto_ResearchAdmin.setText("F.Admin");
-
-        chk_AccountManagement_AndraKonto_SystemAdmin.setText("S.Admin");
-
-        TF_Losen2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TF_Losen2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout AndraKontoLayout = new javax.swing.GroupLayout(AndraKonto);
-        AndraKonto.setLayout(AndraKontoLayout);
-        AndraKontoLayout.setHorizontalGroup(
-            AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AndraKontoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TF_Namn, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(TF_AnvNamn)
-                    .addGroup(AndraKontoLayout.createSequentialGroup()
-                        .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel13))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cb_AccountManagement_MainPanel_AndraKonto_AccountChooser, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(AndraKontoLayout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addComponent(TF_Losen2)
-                    .addGroup(AndraKontoLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AndraKontoLayout.createSequentialGroup()
-                                .addComponent(chk_AccountManagement_AndraKonto_Research)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(chk_AccountManagement_AndraKonto_ResearchAdmin)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(chk_AccountManagement_AndraKonto_SystemAdmin))
-                            .addGroup(AndraKontoLayout.createSequentialGroup()
-                                .addComponent(chk_AccountManagement_AndraKonto_Education)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(chk_AccountManagement_AndraKonto_EducationAdmin)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton3)))
-                        .addGap(0, 34, Short.MAX_VALUE))
-                    .addComponent(TF_Losen))
-                .addContainerGap())
-        );
-        AndraKontoLayout.setVerticalGroup(
-            AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AndraKontoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cb_AccountManagement_MainPanel_AndraKonto_AccountChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TF_Namn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addComponent(jLabel14)
-                .addGap(2, 2, 2)
-                .addComponent(TF_AnvNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel15)
-                .addGap(3, 3, 3)
-                .addComponent(TF_Losen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel16)
-                .addGap(1, 1, 1)
-                .addComponent(TF_Losen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chk_AccountManagement_AndraKonto_ResearchAdmin)
-                    .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(chk_AccountManagement_AndraKonto_SystemAdmin)
-                        .addComponent(chk_AccountManagement_AndraKonto_Research)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chk_AccountManagement_AndraKonto_EducationAdmin)
-                    .addComponent(jButton3)
-                    .addComponent(chk_AccountManagement_AndraKonto_Education))
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-
-        CardPanelHolder.add(AndraKonto, "card2");
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel22.setText("Ta bort konto");
@@ -497,7 +269,7 @@ public class AccountManagement extends javax.swing.JFrame {
                     .addComponent(jButton4)
                     .addComponent(cb_AccountManagement_MainPanel_AndraKonto_AccountChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TaBortKontoLayout.createSequentialGroup()
-                .addContainerGap(148, Short.MAX_VALUE)
+                .addContainerGap(416, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
             .addGroup(TaBortKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -529,7 +301,7 @@ public class AccountManagement extends javax.swing.JFrame {
                 .addComponent(cb_AccountManagement_MainPanel_AndraKonto_AccountChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
             .addGroup(TaBortKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -556,10 +328,240 @@ public class AccountManagement extends javax.swing.JFrame {
                     .addComponent(jCheckBox9)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jCheckBox10)
-                    .addContainerGap(35, Short.MAX_VALUE)))
+                    .addContainerGap(184, Short.MAX_VALUE)))
         );
 
         CardPanelHolder.add(TaBortKonto, "card3");
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel17.setText("Lägg till konto");
+        jLabel17.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
+        lbl_AccountManagement_LaggTillKonto_name.setText("Namn");
+
+        lbl_AccountManagement_LaggTillKonto_username.setText("Användarnamn");
+
+        lbl_AccountManagement_LaggTillKonto_Password.setText("Lösenord");
+
+        tf_AccountManagement_LaggTillKonto_Password.setName(""); // NOI18N
+
+        lbl_AccountManagement_LaggTillKonto_RepeatPassword.setText("Upprepa lösenord");
+
+        tf_Accountmanagement_LaggTillKonto_ChangePassword.setName(""); // NOI18N
+
+        chk_AccountManagement_LaggTillKonto_Research.setText("Forskning");
+        chk_AccountManagement_LaggTillKonto_Research.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chk_AccountManagement_LaggTillKonto_ResearchActionPerformed(evt);
+            }
+        });
+
+        chk_AccountManagement_LaggTillKonto_Education.setText("Utbildning");
+
+        btn_AccountManagement_LaggTillKonto_save.setText("Spara");
+        btn_AccountManagement_LaggTillKonto_save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AccountManagement_LaggTillKonto_saveActionPerformed(evt);
+            }
+        });
+
+        chk_AccountManagement_LaggTillKonto_ResearchAdmin.setText("F.Admin");
+
+        chk_AccountManagement_LaggTillKonto_EducationAdmin.setText("U.Admin");
+
+        chk_AccountManagement_LaggTillKonto_SystemAdmin.setText("S.Admin");
+
+        javax.swing.GroupLayout LaggTillKontoLayout = new javax.swing.GroupLayout(LaggTillKonto);
+        LaggTillKonto.setLayout(LaggTillKontoLayout);
+        LaggTillKontoLayout.setHorizontalGroup(
+            LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LaggTillKontoLayout.createSequentialGroup()
+                .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LaggTillKontoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel17))
+                    .addGroup(LaggTillKontoLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tf_Accountmanagement_LaggTillKonto_ChangePassword)
+                            .addComponent(tf_AccountManagement_LaggTillKonto_Password)
+                            .addComponent(tf_AccountManagement_LaggTillKonto_Username)
+                            .addComponent(lbl_AccountManagement_LaggTillKonto_username)
+                            .addComponent(lbl_AccountManagement_LaggTillKonto_Password)
+                            .addComponent(lbl_AccountManagement_LaggTillKonto_RepeatPassword)
+                            .addComponent(lbl_AccountManagement_LaggTillKonto_name)
+                            .addComponent(tf_AccountManagement_LaggTillKonto_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(LaggTillKontoLayout.createSequentialGroup()
+                                .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(LaggTillKontoLayout.createSequentialGroup()
+                                        .addComponent(chk_AccountManagement_LaggTillKonto_Education)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(chk_AccountManagement_LaggTillKonto_EducationAdmin))
+                                    .addGroup(LaggTillKontoLayout.createSequentialGroup()
+                                        .addComponent(chk_AccountManagement_LaggTillKonto_Research)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(chk_AccountManagement_LaggTillKonto_ResearchAdmin)))
+                                .addGap(18, 18, 18)
+                                .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(chk_AccountManagement_LaggTillKonto_SystemAdmin)
+                                    .addComponent(btn_AccountManagement_LaggTillKonto_save))))))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        LaggTillKontoLayout.setVerticalGroup(
+            LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LaggTillKontoLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel17)
+                .addGap(63, 63, 63)
+                .addComponent(lbl_AccountManagement_LaggTillKonto_name, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tf_AccountManagement_LaggTillKonto_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(lbl_AccountManagement_LaggTillKonto_username)
+                .addGap(2, 2, 2)
+                .addComponent(tf_AccountManagement_LaggTillKonto_Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_AccountManagement_LaggTillKonto_Password)
+                .addGap(3, 3, 3)
+                .addComponent(tf_AccountManagement_LaggTillKonto_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_AccountManagement_LaggTillKonto_RepeatPassword)
+                .addGap(1, 1, 1)
+                .addComponent(tf_Accountmanagement_LaggTillKonto_ChangePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(chk_AccountManagement_LaggTillKonto_ResearchAdmin)
+                        .addComponent(chk_AccountManagement_LaggTillKonto_SystemAdmin))
+                    .addComponent(chk_AccountManagement_LaggTillKonto_Research))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(LaggTillKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chk_AccountManagement_LaggTillKonto_Education)
+                    .addComponent(chk_AccountManagement_LaggTillKonto_EducationAdmin)
+                    .addComponent(btn_AccountManagement_LaggTillKonto_save))
+                .addContainerGap(96, Short.MAX_VALUE))
+        );
+
+        CardPanelHolder.add(LaggTillKonto, "card1");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel12.setText("Ändra konto");
+        jLabel12.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
+        jLabel13.setText("Namn");
+
+        jLabel14.setText("Användarnamn");
+
+        jLabel15.setText("Lösenord");
+
+        jLabel16.setText("Upprepa lösenord");
+
+        chk_AccountManagement_AndraKonto_Research.setText("Forskning");
+
+        chk_AccountManagement_AndraKonto_Education.setText("Utbildning");
+
+        jButton3.setText("Spara");
+
+        jButton2.setText("Välj");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        chk_AccountManagement_AndraKonto_EducationAdmin.setText("U.Admin");
+
+        chk_AccountManagement_AndraKonto_ResearchAdmin.setText("F.Admin");
+
+        chk_AccountManagement_AndraKonto_SystemAdmin.setText("S.Admin");
+
+        TF_Losen2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_Losen2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AndraKontoLayout = new javax.swing.GroupLayout(AndraKonto);
+        AndraKonto.setLayout(AndraKontoLayout);
+        AndraKontoLayout.setHorizontalGroup(
+            AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AndraKontoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TF_AnvNamn)
+                    .addComponent(TF_Namn)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, AndraKontoLayout.createSequentialGroup()
+                        .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_AccountManagement_MainPanel_AndraKonto_AccountChooser, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(AndraKontoLayout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addGap(0, 319, Short.MAX_VALUE))))
+                    .addComponent(TF_Losen2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TF_Losen, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, AndraKontoLayout.createSequentialGroup()
+                        .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AndraKontoLayout.createSequentialGroup()
+                                .addComponent(chk_AccountManagement_AndraKonto_Research)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chk_AccountManagement_AndraKonto_ResearchAdmin)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(chk_AccountManagement_AndraKonto_SystemAdmin))
+                            .addGroup(AndraKontoLayout.createSequentialGroup()
+                                .addComponent(chk_AccountManagement_AndraKonto_Education)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(chk_AccountManagement_AndraKonto_EducationAdmin)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton3))
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel14))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        AndraKontoLayout.setVerticalGroup(
+            AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AndraKontoLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_AccountManagement_MainPanel_AndraKonto_AccountChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TF_Namn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14)
+                .addGap(2, 2, 2)
+                .addComponent(TF_AnvNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel15)
+                .addGap(3, 3, 3)
+                .addComponent(TF_Losen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TF_Losen2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chk_AccountManagement_AndraKonto_ResearchAdmin)
+                    .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(chk_AccountManagement_AndraKonto_SystemAdmin)
+                        .addComponent(chk_AccountManagement_AndraKonto_Research)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(AndraKontoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chk_AccountManagement_AndraKonto_EducationAdmin)
+                    .addComponent(jButton3)
+                    .addComponent(chk_AccountManagement_AndraKonto_Education))
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+
+        CardPanelHolder.add(AndraKonto, "card2");
 
         btn_AccountManagement_MainPanel_Dictionary.setText("Ordlista");
         btn_AccountManagement_MainPanel_Dictionary.addActionListener(new java.awt.event.ActionListener() {
@@ -577,14 +579,16 @@ public class AccountManagement extends javax.swing.JFrame {
                 .addComponent(CardPanelHolder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btn_AccountManagement_MainPanel_Avsluta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_AccountManagement_MainPanel_Loggaut, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btn_AccountManagement_MainPanel_AndraKonto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_AccountManagement_MainPanel_LaggTillKonto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                        .addComponent(btn_AccountManagement_MainPanel_TaBortKonto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(btn_AccountManagement_MainPanel_Dictionary, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+                    .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_AccountManagement_MainPanel_Avsluta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_AccountManagement_MainPanel_Loggaut, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btn_AccountManagement_MainPanel_AndraKonto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_AccountManagement_MainPanel_TaBortKonto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
+                        .addComponent(btn_AccountManagement_MainPanel_Dictionary, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
+                        .addComponent(btn_AccountManagement_MainPanel_LaggTillKonto, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

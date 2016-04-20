@@ -31,6 +31,7 @@ public class SeMoten extends javax.swing.JFrame {
      */
     public SeMoten() {
         initComponents();
+        this.setLocationRelativeTo(null);
         laggTillNamn();
         fillBox();
 //kraschar när den inte är kommenterad        

@@ -29,6 +29,7 @@ public class SkapaMote extends javax.swing.JFrame {
      */
     public SkapaMote() {
        // listHiredToCB();
+       this.setLocationRelativeTo(null);
         initComponents();
         laggTillNamn();
         addRooms();   
